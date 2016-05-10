@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{text-align:center;margin:0;padding:0;font-size:12px;}
+
+div,form,img,ul,ol,li,dl,dt,dd{margin:0;padding:0;border:0;}
+
+h1,h2,h3,h4,h5,h6,p,table,td{margin:0;padding:0;font-size:12px;}
+
+li{list-style:none;}
+
+#layout{width:1120px; margin-left:50px; margin-top:50px;}
+
+#tabnav{width:120px;float:left; height:500px;}
+
+#tabnav li{float:left;width:120px;height:56px;line-height:56px;padding-left:8px;text-align:left;cursor:pointer;-webkit-user-select:none; -moz-user-select:none;font-size:14px;font-family:'Microsoft yahei';color:#666; background:#EFEDEE}
+
+#tabnav li.current{color:#f60;font-weight:bold;}
+
+#tab{width:900px;height:600px;float:right; margin-right:50px;}
+
+#tab ul{width:900px;height:24px;}
+
+#tab li{float:left;width:70px;height:30px;line-height:23px;cursor:pointer;border:1px solid #ccc;margin:0 1px 0 0;display:inline;background:#333;color:#fff;}
+
+#tab li.current{background:#f60;font-weight:bold;}
+
+#tab .tabcon{float:left;width:800px;height:500px;display:none;border:1px solid #ccc;}
+
+#tab .block{display:block;}
