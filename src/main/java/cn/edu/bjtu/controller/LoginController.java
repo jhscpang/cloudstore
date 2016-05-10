@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 @Controller
-public class DefaultController {
+public class LoginController {
 
 	/**
 	 * @Description:重定向默认情况下去欢迎页
 	 * @exception:
 	 */
-	@RequestMapping("/index.do")
+	@RequestMapping("/login.do")
 	public String index(HttpServletResponse response, HttpServletRequest request) throws Exception{
-		return "WEB-INF/jsp/index";
+		return "WEB-INF/jsp/login";
 	}
 }
