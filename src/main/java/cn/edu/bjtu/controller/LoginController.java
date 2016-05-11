@@ -21,7 +21,7 @@ public class LoginController {
 	 * @exception:
 	 */
 	@RequestMapping("/login.do")
-	public String index(HttpServletResponse response, HttpServletRequest request) throws Exception{
+	public String login(HttpServletResponse response, HttpServletRequest request) throws Exception{
 		return "WEB-INF/jsp/login";
 	}
 }
