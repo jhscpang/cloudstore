@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import cn.edu.bjtu.dao.IRegisterDao;
 import cn.edu.bjtu.dao.IUserDao;
+import cn.edu.bjtu.model.UserEntity;
 import cn.edu.bjtu.model.UserInfo;
 import cn.edu.bjtu.utils.EmailUtil;
 
