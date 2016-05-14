@@ -20,7 +20,7 @@ import cn.edu.bjtu.utils.EmailUtil;
  */
 
 @Repository("registerDao")
-public class RegisterDaoImpl extends BaseDaoImpl<UserEntity> implements IRegisterDao {
+public class RegisterDaoImpl extends BaseDaoImpl<UserInfo> implements IRegisterDao {
 	
 	@Override
 	public boolean isExist(String email) {
