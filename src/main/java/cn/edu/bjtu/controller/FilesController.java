@@ -41,10 +41,9 @@ import cn.edu.bjtu.utils.file.TrashUtil;
  * 
  * */
 @Controller
-@RequestMapping("/cloudDisk")
 public class FilesController {
 
-    @RequestMapping(
+    @RequestMapping(value="/cloudDisk.do",
             method=RequestMethod.GET)  
     @ResponseStatus(HttpStatus.OK)  
 	public String getFiles(Model model,
@@ -68,22 +67,22 @@ public class FilesController {
 		model.addAttribute("directorys",
 				new FileUtil().getSubdirectories(currentBasePath)
 			);
-		return "file";
+		return "WEB-INF/jsp/file_all";
 	}
     
-    @RequestMapping(value = "/{path}",
+    @RequestMapping(value = "cloudDisk/{path}",
             method=RequestMethod.GET)  
     @ResponseStatus(HttpStatus.OK)  
-	public String getFiles(@PathVariable String path, HttpSession session, Model model){
+	public String getFilesagain(@PathVariable String path, HttpSession session, Model model){
 		String currentBasePath = (String) session.getAttribute("currentPath") + "/" + path;
-		return "redirect:filefold";
+		return "redirect:cloudDisk";
 	}
     
     /*
      * 
      * 新建文件夹
      * */
-    @RequestMapping(
+    @RequestMapping(value="/cloudDisk",
             method=RequestMethod.POST)  
     @ResponseStatus(HttpStatus.OK)  
 	public String addDir(@RequestParam String path,
@@ -98,7 +97,7 @@ public class FilesController {
      * 删除文件或文件夹
      * url: cloudDisk/filename
      * */
-    @RequestMapping(value="/{filename}",
+    @RequestMapping(value="cloudDisk/{filename}",
             method=RequestMethod.DELETE)  
     @ResponseStatus(HttpStatus.OK)  
 	public String deleteFile(@PathVariable("filename")  String fileName,
