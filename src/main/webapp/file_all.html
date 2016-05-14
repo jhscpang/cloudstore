@@ -109,10 +109,30 @@
     </ul>
     
   </div>
+  </div>
     </header><!--/header-->
-    <div class="rightBlock">
+    <div class="right-content">
+			<div class="module-toolbar">
+				<div class="default-dom" style="display:block">
+				 <form name="test_form" method="post" ENCTYPE="multipart/form-data" onsubmit="alert(document.test_form.browse.value);" >
+                <input type="file" name="browse" style="display:none;" /> 
+				 <div  style="left: 20px; position: relative; "> 
+                <button type="button" class="btn btn-primary btn-xs" style="margin-right:20px;" onclick="fn_browse();"><span class="glyphicon glyphicon-cloud-upload"></span>上传文件</button>                                         
+                <button type="button" class="btn btn-primary btn-xs" style="margin-right:20px;" onclick="fn_browse();"><span class="glyphicon glyphicon-cloud-upload"></span>上传文件夹</button>  
+                <button type="button" class="btn btn-primary btn-xs" id="create" onclick="createFile();"><span class="glyphicon glyphicon-plus"></span>新建文件夹</button>
+      </div></form> </div>
+       </div>
+       
+					<!-- <div class="list-grid-switch list-switched-on">
+						<div class="list-switch"></div>
+						<div class="grid-switch"></div>
+					</div> -->
+				</div>
+			</div>
+    
+     <div class="rightBlock">
      <div style="margin-top: 0%;margin-left: 0%; width: 100%">
-	  <div class="panel panel-default">
+	 <!--  <div class="panel panel-default">
       <div class="panel-heading" role="alert" > 
       <form name="test_form" method="post" ENCTYPE="multipart/form-data" onsubmit="alert(document.test_form.browse.value);" >
                 <input type="file" name="browse" style="display:none;" /> 
@@ -123,10 +143,10 @@
        </div>
        </form>
        </div>
-        </div> 
-  
+        </div>  -->
+   
     </div>
-    <div class="module-history-list" style="left: 35px; position: relative; top: 2px;">
+    <div class="module-history-list" style="left: 35px; position: relative; top: 10px;">
 		<span class="history-list-dir" style="margin-right:10px;">全部文件</span>
 								  
     </div>
@@ -344,53 +364,181 @@
          </div>  
          
 <div id="share" class="dialog dialog-share">
-	<div class="dialog-header dialog-drag">
-		<h3>
-			<span class="dialog-header-title">
-				<em class="select-text">分享文件：</em>
-			</span>
-		</h3>
-		<div class="dialog-control">
-			<span class="dialog-icon dialog-close share-close">
-			</span>
-		</div>
-	</div>
-	<div class="dialog-body">
-		<div class="share-dialog">
-			<div id="_disk_id_1" class="content">
-				<ul class="tab">
-					<li class="share-link current">
-						<span class="icon"></span>
-						链接分享
-					</li>
-					<li class="share-friend">
-						<span class="icon"></span>
-						发给好友
-					</li>
-					<li class="share-mail">
-						<span class="icon"></span>
-						发到邮箱
-					</li>
-				</ul>
-				<ul class="content">
-					<li class="share-link" style="display:block;">
-						<div class="create-link">
-								<span class="all">生成下载链接，然后复制链接发送到QQ,MSN等好友</span>
-							<div class="button-section">
-								<button type="button" class="mybtn btn">创建链接</button>
-								
-							</div>
-						</div>
-					</li>
-				</ul>
-				<div class="dialog-footer">
-					<button type="button" class="share-close dialogclose btn btn-default">
-					关闭  </button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>  
+  <div class="dialog-header dialog-drag">
+    <h3>
+      <span class="dialog-header-title">
+        <em class="select-text">分享文件：</em>
+      </span>
+    </h3>
+    <div class="dialog-control">
+      <span class="dialog-icon dialog-close share-close">
+      </span>
+    </div>
+  </div>
+  <div class="dialog-body">
+    <div class="share-dialog">
+      <div id="_disk_id_1" class="content">
+        <ul class="tab">
+          <li class="share-link current">
+            <span class="icon"></span>
+            链接分享
+          </li>
+          <li class="share-friend">
+            <span class="icon"></span>
+            发给好友
+          </li>
+          <li class="share-mail">
+            <span class="icon"></span>
+            发到邮箱
+          </li>
+        </ul>
+        <ul class="content">
+          <li id="share-link" class="share-link" style="display:block;">
+            <div class="create-link">
+                <span class="all">生成下载链接，然后复制链接发送到QQ,MSN等好友</span>
+              <div class="button-section">
+                <button type="button" class="mybtn btn">创建链接</button>
+                
+              </div>
+            </div>
+          </li>
+          <li id="share-friend" class="share-friend" style="display:none;">
+            <div id="sharefriendBox" class="share-friend-box">
+            <p class="title">
+              <span id="shareTitle">选择好友分享文件，一次最多50人</span>
+            </p>
+            <div class="content global-clearfix">
+              <div class="left-side">
+                <div id="contactBox" class="contact-box">
+                  <div id="friendBox" class="contact-group" style="display:block;">
+                    <ul id="treeList-abc-" class="tree-list">
+                      <li id="treeList-abc-1" class="mboxOfGroup step-0">
+                        <div class="title zhankai">
+                          <em class="icon"></em>
+                          群组
+                          <span class="number">(1)</span>
+                        </div>
+                        <ul style="display:none; margin:0; padding:0;">
+                          <li id="treeList-abc-1,0" class="step-1">
+                            <div class="mylabel select-label"></div>
+                            <div class="uinfo" title="hlh2bjtu、唯想断城、ohowzz的群组">
+                              <div class="img-box img-box-3 global-clearfix">
+                                <img src="http://himg.bdimg.com/sys/portrait/item/aaacba23.jpg" class="img-1">
+                                <img src="http://himg.bdimg.com/sys/portrait/item/0cef624d.jpg" class="img-2">
+                                <img src="http://himg.bdimg.com/sys/portrait/item/2827f154.jpg" class="img-3">
+                              </div>
+                              hlh2bjtu、唯想断城、ohowzz的群组
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li id="treeList-abc-2" class="mboxOfFriend step-0">
+                        <div class="title zhankai">
+                          <em class="icon"></em>
+                          好友
+                          <span class="number">(3)</span>
+                        </div>
+                        <ul style="display: none; margin:0; padding:0;">
+                          <li id="treeList-abc-2,0" class="step-1">
+                            <div class="mylabel select-label"></div>
+                            <div class="uinfo" title="侯立华">
+                              <img src="http://himg.bdimg.com/sys/portrait/item/0cef624d.jpg" class="avatar">
+                              侯立华
+                            </div>
+                          </li>
+                          <li id="treeList-abc-2,1" class="step-1">
+                            <div class="mylabel select-label"></div>
+                            <div class="uinfo" title="许瑶11211">
+                              <img src="http://himg.bdimg.com/sys/portrait/item/ebcf4323.jpg" class="avatar">
+                              许瑶11211
+                            </div>
+                          </li>
+                          <li id="treeList-abc-2,2" class="step-1">
+                            <div class="mylabel select-label"></div>
+                            <div class="uinfo" title="hlh2bjtu">
+                              <img src="http://himg.bdimg.com/sys/portrait/item/aaacba23.jpg" class="avatar">
+                              hlh2bjtu
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+              <div class="right-side">
+                <div id="searchBox" class="search-box">
+                  <div style="line-height:34px;text-align: right;">
+                    <a id="searchFriendLink" href="javascript:void(0);">
+                      添加好友
+                    </a>
+                  </div>
+                </div>
+                <div id="selectedList">
+                  <div class="selected-box">
+                    <p class="title" id="descTitle">
+                      已选择
+                      <span id="shareNum" class="share-num">0</span>
+                      个收件人
+                      <span id="defaultSelectedTip" style="display: none;">（默认创建群组）</span>
+                    </p>
+                    <ul class="select-list">
+                      <div class="none global-center" style="display:block;">
+                        <span>你还没有选择好友</span>
+                      </div>
+                      <!-- <li data-uniqueid="4014555837" data-groupid="2,0" class="item">
+                        <div class="label-box" node-type="labelBox">
+                          <div class="mylabel label-dis"></div>
+                        </div>
+                        <div class="uinfo g-clearfix" title="侯立华">
+                          <img src="http://himg.bdimg.com/sys/portrait/item/0cef624d.jpg" class="avatar" height="23" width="23">
+                          <span class="uname">
+                          侯立华
+                          </span>
+                        </div>
+                      </li> -->
+                    </ul>
+                  </div>
+                </div><!-- 搜索结果 -->
+              <div style="display: none;" id="resultBox" class="result-box">
+                <div id="searchResultParent" class="search-result-parent">
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+          </li>
+          <li id="share-mail" class="share-mail" style="display:none;">
+            <div id="sharefriendBox" class="share-phone-mail-box">
+              <div class="right-side">
+              </div>
+              <div class="left-side">
+                <p class="title">
+                  <span id="shareTitle">将文件的下载地址发到好友的邮箱，一次最多5人
+                  </span>(<span id="shareNu" class="nu">0</span>)
+                </p>
+                <div id="nameContent" class="name-content clearfix">
+                  <div id="nameCards" class="name-cards">
+                  </div>
+                  <input style="width: 397px; color: rgb(153, 153, 153);" id="inputText" class="input-text" value="请输入或选择邮件地址" type="text">
+                </div>
+                <p class="title" id="descTitle">邮件内容：</p>
+                <p class="desc-box"><label>0/500</label><textarea id="desc" class="desc" maxlength="500">描述一下分享的文件吧</textarea></p>
+              </div>
+
+            </div>
+          </li>
+        </ul>
+        <div class="dialog-footer">
+          <button type="button" class="share-close dialogclose btn btn-default">
+          关闭  </button>
+          <button type="button" class="share-btn btn btn-danger" style="display:none;">分享</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
        
 <div id="confirm" class="dialog dialog-confirm">
 	<div class="dialog-header dialog-drag">
