@@ -5,15 +5,19 @@ package cn.edu.bjtu.utils.file;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import org.apache.commons.logging.Log;
 
 /**
  * @author phobes
  */
 public class FileUtil {
 	
-	public List<String> getChildFilenames(String filename){
+	public static List<String> getChildFilenames(String filename){
 		File file  = new File(filename);
 		
 		List<String> filesname = new ArrayList<>();
@@ -58,5 +62,10 @@ public class FileUtil {
                 dirsName.add(array[i].getName());
         }    
 		return dirsName;		
+	}
+	
+	// test
+	public static void main(String[] args) {
+		System.out.println(getChildFilenames("/home/phobes/"));
 	}
 }

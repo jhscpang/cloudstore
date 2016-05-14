@@ -141,6 +141,9 @@ public class CopyFileUtil {
         boolean recursive = false;
         boolean prompt = false;
         boolean preserve = false;
-        
+        Path  source = Paths.get("/home/phobes/test");
+        Path target = Paths.get("/home/phobes/tmp/test");
+        //copyFile(source, target, preserve, preserve);
+        Files.move(source, target);
     }
 }

@@ -104,7 +104,7 @@ public class FilersController {
 	public String deleteFile(@PathVariable("filename")  String fileName,
 		HttpSession session){
 		String sourceName = (String)session.getAttribute("currentPath") + "/" + fileName;
-		String targetName = (String)session.getAttribute("currentPath") + "/" + TrashUtil.getTrashUtilName();
+		String targetName = (String)session.getAttribute("currentPath") + "/" + TrashUtil.getTrashUtilName() + fileName;
 		//把文件放到回收站
 		Path source = new File(sourceName).toPath();
 		Path target = new File(targetName).toPath();

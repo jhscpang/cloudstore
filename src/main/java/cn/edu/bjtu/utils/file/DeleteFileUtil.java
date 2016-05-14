@@ -2,7 +2,6 @@
  * 
  */
 package cn.edu.bjtu.utils.file;
-
 import java.io.File;
 
 /**
@@ -97,11 +96,8 @@ public class DeleteFileUtil {
         }     
     }     
          
-    public static void main(String[] args) {     
-        //String fileName = "g:/temp/xwz.txt";     
-        //DeleteFileUtil.deleteFile(fileName);     
-        String fileDir = "G:/temp/temp0/temp1";     
-        //DeleteFileUtil.deleteDirectory(fileDir);     
+    public static void main(String[] args) {      
+        String fileDir = "/home/phobes/java_error_in_STUDIO_2327.log";     
         DeleteFileUtil.delete(fileDir);     
              
     }     

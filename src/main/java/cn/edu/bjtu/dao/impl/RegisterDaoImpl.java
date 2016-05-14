@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import cn.edu.bjtu.dao.IRegisterDao;
 import cn.edu.bjtu.dao.IUserDao;
+import cn.edu.bjtu.model.UserEntity;
 import cn.edu.bjtu.model.UserInfo;
 import cn.edu.bjtu.utils.EmailUtil;
 
@@ -20,7 +21,7 @@ import cn.edu.bjtu.utils.EmailUtil;
  */
 
 @Repository("registerDao")
-public class RegisterDaoImpl extends BaseDaoImpl<UserEntity> implements IRegisterDao {
+public class RegisterDaoImpl extends BaseDaoImpl<UserInfo> implements IRegisterDao {
 	
 	@Override
 	public boolean isExist(String email) {
