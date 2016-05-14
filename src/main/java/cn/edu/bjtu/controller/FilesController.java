@@ -3,17 +3,10 @@
  */
 package cn.edu.bjtu.controller;
 
-import static java.nio.file.StandardCopyOption.*;
-
 import java.io.File;
-import java.io.FileFilter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -28,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import cn.edu.bjtu.utils.FileBasePathUtil;
-import cn.edu.bjtu.utils.file.DeleteFileUtil;
 import cn.edu.bjtu.utils.file.FileUtil;
 import cn.edu.bjtu.utils.file.TrashUtil;
 
