@@ -60,13 +60,12 @@
 }
 .list-header .check-icon {
     
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     position: absolute;
-    top: 14px;
+    top: 8px;
     left: 11px;
     cursor: default;
-	background: url(../images/list-view_4e60b0c.png)-9px -12px;
 }
 .list-header .list-header-operatearea .list-header-operate {
     padding-top: 7px;
@@ -166,6 +165,9 @@
 .icon-download-blue {
     background: url(../images/sys-icon_9b5f22d.png) no-repeat -90px 0;
 }
+.icon-gengduo-blue {
+    background: url(../images/list-view_4e60b0c.png) no-repeat 0 -40px;
+}
 .module-grid-view {
     position: relative;
 
@@ -182,12 +184,11 @@
 	border: 3px solid #2e80dc;
 }
 .img_checkbox {
-	background: url(../images/checkbox_aea6cfd.png) 6px -36px no-repeat;
 	position: absolute;
-	top: -6px;
-	left: 9px;
-	height: 30px;
-	width: 30px;
+	top: -5px;
+	left: 15px;
+	height: 18px;
+	width: 18px;
 	display: none;
 }
 
@@ -319,6 +320,15 @@
 .share-dialog .share-friend .icon {
     background-position: -45px 5px;
 }
+.tree-list .open .title .icon {
+    height: 5px;
+    line-height: 0;
+    font-size: 0;
+    width: 10px;
+    top: 10px;
+    left: 8px;
+    background-position: -50px -160px !important;
+}
 .share-dialog .share-mail .icon {
     background-position: -94px 4px;
 }
@@ -356,6 +366,10 @@
 .dialog-footer .dialogclose {
 	float: right;
 	margin-left: 10px;
+}
+.dialog-footer .share-btn {
+    float: right;
+    margin-left: 10px;
 }
 .share-dialog .mybtn {
     background: #c52d2f;
@@ -426,17 +440,15 @@
 .module-list-view .list-view-item .my_checkbox {
     cursor: default;
     display: block;
-    height: 38px;
-    left: 3px;
+    height: 18px;
+    left: 10px;
     line-height: 38px;
     position: absolute;
     z-index: 1;
     text-align: left;
-    text-indent: 10px;
-    top: 0;
-    width: 32px;
+    top: 5px;
+    width: 18px;
     zoom: 1;
-    background: url(../images/checkbox_aea6cfd.png) 9px 12px no-repeat;
 }
 .module-list-view .list-view-item .fileicon {
     cursor: default;
@@ -454,6 +466,10 @@
 .fileicon-small-video {
     background-image: url(../images/listIcon_82b617a.png);
 	background-position: -210px 0;
+}
+.fileicon-small-gallery {
+    background-image: url(../images/listIcon_82b617a.png);
+    background-position: 0 0;
 }
 .module-list-view .list-view-item .file-name {
     position: relative;
@@ -555,7 +571,7 @@
     background: #F7F7F7;
 }
 .module-toolbar .list-grid-switch {
-    margin: 12px 30px 0 0;
+    margin: 12px 45px 0 0;
     float: right;
     _display: inline;
     _zoom: 1;
@@ -585,4 +601,288 @@
     border: 2px solid #FFF;
     background-repeat: no-repeat;
     overflow: hidden;
+}
+.share-phone-mail-box {
+    color: #333;
+    position: relative;
+    zoom: 1;
+}
+.share-phone-mail-box .left-side {
+    width: 422px;
+}
+.share-phone-mail-box .title {
+    line-height: 33px;
+    height: 33px;
+}
+.share-phone-mail-box .name-content {
+    border: 1px solid #C6C6C6;
+    box-shadow: 0 0 3px #C6C6C6;
+    -moz-box-shadow: 0 0 3px #C6C6C6;
+    -webkit-box-shadow: 0 0 3px #C6C6C6;
+    *border: 1px solid #7FADDC;
+    background: #fff;
+    margin-bottom: 9px;
+    overflow: auto;
+    overflow-x: hidden;
+    _height: expression(this.scrollHeight > 84 ? "84px" : "28px");
+    position: relative;
+    max-height: 84px;
+    min-height: 28px;
+}
+.share-phone-mail-box input.input-text {
+    line-height: 24px;
+    font-size: 12px;
+    height: 24px;
+    margin: 2px;
+    border: 0 none;
+    color: #999;
+    overflow: hidden;
+    float: left;
+    width: 400px;
+    color: #999;
+}
+.share-phone-mail-box .desc-box {
+    height: 225px;
+    position: relative;
+}
+.share-phone-mail-box .desc-box label {
+    position: absolute;
+    bottom: 6px;
+    right: 18px;
+    color: #666;
+}
+.share-phone-mail-box .desc {
+    height: 216px;
+    width: 420px;
+    border: 1px solid #C6C6C6;
+    box-shadow: 0 0 3px #C6C6C6;
+    -moz-box-shadow: 0 0 3px #C6C6C6;
+    -webkit-box-shadow: 0 0 3px #C6C6C6;
+    *border: 1px solid #7FADDC;
+    background: #fff;
+    outline: 0;
+    resize: none;
+    color: #999;
+    padding: 3px 5px;
+}
+.share-friend-box {
+    color: #333;
+    position: relative;
+    zoom: 1;
+}
+.share-friend-box .title {
+    line-height: 33px;
+    height: 33px;
+}
+.share-friend-box .left-side {
+    float: left;
+    width: 285px;
+}
+.share-friend-box .contact-box {
+    height: 300px;
+    border: 1px solid #cfcfd0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    *position: relative;
+}
+.share-friend .contact-box {
+    height: 272px;
+    border: 1px solid #cfcfd0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    *position: relative;
+}
+.tree-list {
+    font-size: 12px;
+    line-height: 26px;
+}
+.tree-list .title {
+    position: relative;
+    text-indent: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 26px !important;
+    line-height: 24px !important;
+    cursor: pointer;
+}
+.tree-list .title .icon {
+    position: absolute;
+    display: block;
+    height: 10px;
+    line-height: 0;
+    font-size: 0;
+    width: 5px;
+    top: 8px;
+    left: 10px;
+    background-position: -50px -150px !important;
+}
+.share-friend-box .right-side {
+    float: right;
+    position: relative;
+    width: 285px;
+}
+.share-friend-box .search-box {
+    position: relative;
+    margin-top: -34px;
+    height: 34px;
+}
+.share-friend-box .right-side .title {
+    padding-left: 5px;
+    border-bottom: 1px solid #c6c6c6;
+    color: #666;
+}
+.share-friend-box .right-side .title .share-num {
+    color: #64be33;
+}
+.share-friend-box .right-side .title {
+    color: #666;
+}
+.share-friend-box .select-list li.item {
+    padding: 5px;
+}
+.select-list .label-box {
+    float: right;
+    margin-right: 10px;
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+}
+.share-friend-box .select-list .uinfo {
+    line-height: 23px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.share-friend-box .select-list .uinfo .uname {
+    margin-left: 8px;
+    float: left;
+    width: 190px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: default;
+}
+.share-friend-box .select-list .uinfo .avatar {
+    float: left;
+}
+.tree-list .uinfo .img-box-3 .img-1 {
+    margin-left: 7px;
+    margin-bottom: 1px;
+    display: inline;
+}
+.tree-list .uinfo .img-box-3 .img-1, .tree-list .uinfo .img-box-3 .img-2, .tree-list .uinfo .img-box-3 .img-3 {
+    width: 13px;
+    height: 13px;
+}
+.tree-list .uinfo .img-box img {
+    float: left;
+}
+.tree-list .uinfo .img-box-3 .img-3 {
+    margin-left: 1px;
+    display: inline;
+}
+.tree-list .uinfo .img-box-3 .img-2 {
+}
+.tree-list .uinfo .img-box {
+    position: absolute;
+    top: 2px;
+    left: 20px;
+    width: 27px;
+}
+.tree-list .uinfo {
+    position: relative;
+    padding-left: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 30px;
+    line-height: 30px;
+}
+.tree-list .uinfo .avatar {
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    left: 20px;
+    top: 2px;
+}
+.tree-list .step-1 .mylabel-on {
+    background-position: 0 -20px;
+}
+.tree-list .step-1 .mylabel {
+    float: right;
+    margin: 8px 20px 0 0;
+    width: 16px;
+    height: 16px;
+    background: url(../images/label_6b8b9c0.png) 0 0 no-repeat;
+}
+.share-friend-box .select-list .mylabel {
+    margin-top: 4px;
+    margin-left: 3px;
+    width: 16px;
+    height: 16px;
+    background: url(../images/label_6b8b9c0.png) 0 -40px no-repeat;
+}
+.share-friend-box .select-list {
+    height: 230px;
+    overflow: auto;
+    margin: 0;
+    padding-left: 6px;
+}
+.global-center, .g-center {
+    text-align: center;
+}
+.share-friend-box .select-list .none {
+    padding-top: 15px;
+    color: #999;
+}
+.share-friend-box .selected-box {
+    border: 1px solid #cfcfd0;
+}
+.share-friend-box ul {
+    list-style: none;
+}
+.share-friend .contact-group {
+    margin: 0;
+    padding: 0;
+}
+.tree-list {
+    margin: 0;
+    padding: 0;
+}
+
+.module-list-view .operate .g-button .g-button-right {
+    padding: 0;
+    width: 8px;
+    height: 20px;
+    background: 0 0;
+    margin: 0;
+    cursor: pointer;
+}
+.module-list-view .menu {
+    display: block;
+    position: absolute;
+    left: -25px;
+    z-index: 21;
+    width: 100px !important;
+    text-align: center;
+    border: 1px solid #CFCFCF;
+    box-shadow: 0 2px 3px #CFCFCF;
+    border-radius: 3px;
+    text-indent: 0;
+    background: #fff;
+    font-size: 12px;
+    margin-top: 3px;
+    overflow: visible;
+}
+
+.module-list-view .menu .g-button-menu {
+    display: block;
+    color: #666;
+    border-bottom: 1px solid #E7E7E7;
+    height: 27px;
+    line-height: 27px;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: visible;
 }

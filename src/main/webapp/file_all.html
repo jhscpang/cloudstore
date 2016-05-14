@@ -14,8 +14,9 @@
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/file.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/gallery_my.css" rel="stylesheet">
+    <link href="css/file_my.css" rel="stylesheet">
     <link href="style/style.css" rel="stylesheet">
+    <link href="css/gallery_my.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -88,9 +89,13 @@
                 </div>
             </div>
         </nav>
-        <div class="sidebar"> 
-      <div class="s-content">
-      <ul id="nav">
+           </header>
+ <div class="content">
+	<div class="row">
+		<div class="sidebar col-md-3">         
+         <div class="sidebar-dropdown"><a href="#">八斗</a></div>
+			  <div class="s-content">
+				<ul id="nav">
       <li> <a href="file_all.html" class="open br-red"><i class="icon-comments"></i><span class="glyphicon glyphicon-home"></span><span style="font-size:18px;"> 全部文件</span></a> </li>
       <li class="has_sub"><a href="gallery_all.html" class="br-blue"><i class="icon-list-alt"></i><span class="glyphicon glyphicon-picture"></span><span style="font-size:16px;"> 图片</span></a>       
       </li>
@@ -98,11 +103,9 @@
       </li>
       <li class="has_sub"><a href="video_all.html" class="br-orange"><i class="icon-comments"></i><span class="glyphicon glyphicon-hd-video"></span> <span style="font-size:16px;">视频</span> </a>        
       </li>
-      <!-- <li class="has_sub"><a href="#" class="br-yellow"><i class="icon-comments"></i><span class="glyphicon glyphicon-heart"></span> <span style="font-size:16px;">种子</span> </a>        
-      </li> -->
       <li class="has_sub"><a href="music_all.html" class="br-purple"><i class="icon-comments"></i><span class="glyphicon glyphicon-music"></span> <span style="font-size:16px;">音乐</span> </a>       
       </li>
-      <li class="has_sub"><a href="file_other.html" class="br-red"><i class="icon-comments"></i><span class="glyphicon glyphicon-list-alt"></span> <span style="font-size:16px;">其他</span> </a>       
+      <li class="has_sub"><a href="file_other.html" class="br-yellow"><i class="icon-comments"></i><span class="glyphicon glyphicon-list-alt"></span> <span style="font-size:16px;">其他</span> </a>       
       </li>
       <li> <a href="recycle_bin.html" class="open br-red"><i class="icon-comments"></i><span class="glyphicon glyphicon-trash"></span>  <span style="font-size:18px;">回收站</span></a> </li>
 
@@ -110,241 +113,282 @@
     
   </div>
   </div>
-    </header><!--/header-->
+
+    
     <div class="right-content">
 			<div class="module-toolbar">
 				<div class="default-dom" style="display:block">
-				 <form name="test_form" method="post" ENCTYPE="multipart/form-data" onsubmit="alert(document.test_form.browse.value);" >
+				    <form name="test_form" method="post" ENCTYPE="multipart/form-data" onsubmit="alert(document.test_form.browse.value);" >
                 <input type="file" name="browse" style="display:none;" /> 
-				 <div  style="left: 20px; position: relative; "> 
+				<div  style="left: 20px; position: relative; ">
                 <button type="button" class="btn btn-primary btn-xs" style="margin-right:20px;" onclick="fn_browse();"><span class="glyphicon glyphicon-cloud-upload"></span>上传文件</button>                                         
                 <button type="button" class="btn btn-primary btn-xs" style="margin-right:20px;" onclick="fn_browse();"><span class="glyphicon glyphicon-cloud-upload"></span>上传文件夹</button>  
                 <button type="button" class="btn btn-primary btn-xs" id="create" onclick="createFile();"><span class="glyphicon glyphicon-plus"></span>新建文件夹</button>
-      </div></form> </div>
-       </div>
-       
-					<!-- <div class="list-grid-switch list-switched-on">
-						<div class="list-switch"></div>
-						<div class="grid-switch"></div>
-					</div> -->
+           
+                </div>
+                </form>
+					
 				</div>
 			</div>
-    
-     <div class="rightBlock">
-     <div style="margin-top: 0%;margin-left: 0%; width: 100%">
-	 <!--  <div class="panel panel-default">
-      <div class="panel-heading" role="alert" > 
-      <form name="test_form" method="post" ENCTYPE="multipart/form-data" onsubmit="alert(document.test_form.browse.value);" >
-                <input type="file" name="browse" style="display:none;" /> 
-              <div  style="left: 40px; position: relative; ">
-                <button type="button" class="btn btn-primary btn-xs" style="margin-right:35px;" onclick="fn_browse();"><span class="glyphicon glyphicon-cloud-upload"></span>上传文件</button>                                         
-                <button type="button" class="btn btn-primary btn-xs" style="margin-right:35px;" onclick="fn_browse();"><span class="glyphicon glyphicon-cloud-upload"></span>上传文件夹</button>  
-                <button type="button" class="btn btn-primary btn-xs" id="create" onclick="createFile();"><span class="glyphicon glyphicon-plus"></span>新建文件夹</button>
-       </div>
-       </form>
-       </div>
-        </div>  -->
-   
-    </div>
-    <div class="module-history-list" style="left: 35px; position: relative; top: 10px;">
-		<span class="history-list-dir" style="margin-right:10px;">全部文件</span>
-								  
-    </div>
-    <div class="panel">
-      <div class="panel-body"> 
-        <!-- Table -->
-        <table class="table table-hover table-bordered"  id="fileList" style="table-layout: fixed">
-          <thead>
-            <tr>
-              <th class="tdcenter" width= 20px height="45px"><input name="" type="checkbox" value="" id="checkAll" />全选</th>
-              <th width= 200px><span style="margin-right:30px;">文件名</span>
-              <div class="g-button sharebutton" href="javascipt:void(0);" id = "shareshare" style="display:none">
-					<span class="g-button-right">
-						<em class="icon icon-share-gray" title="分享">
-						</em>
-					    <span class="text" style="width:auto;">分享</span>
-						</span>
-			 </div>
-              <div class="g-button" href="" id="download" style="display:none">              
-					<span class="g-button-right">
-						<em class="icon icon-download-gray" title="下载">
-						</em>
-						<span class="text" style="width:auto;">下载</span>
-						</span>
-			 </div>
-			 <div class="g-button deletebutton" href="" id="delete" style="display:none">
-					<span class="g-button-right">
-						<em class="icon icon-delete" title="删除">
-						</em>
-						<span class="text" style="width:auto;">删除</span>
-							</span>
-			 </div>
-              </th>
-              <th width= 40px>大小</th>
-              <th width= 45px>修改时间</th>         
-              <th width= 45px>操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>   
-              <td class="tdcenter"><input name="subBox" type="checkbox" value="" /></td>        
-              <td><img src="images/file/f01.png" style="margin-right:10px;"/>
-                  <span id="OrderTime" style="color:black">动漫</span><input type="text" id="OrderTimeInput" style="display:none"/>
-                  <!-- <button id="changeOrderTime" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime()">
-                  <span class="glyphicon glyphicon-edit"></span></button> -->
-                  <button id="timeChangeOK" type="button" class="btn btn-default btn-xs " style="display:none">
-                  <span class="glyphicon glyphicon-ok"></span></button>
-                  <button id="timeChangeRemove" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-remove"></span></button>
-              </td>
-              <td>9.8G</td>
-              <td>2016-05-01</td>           
-              <td colspan="1" class="tdcenter">
-              
-                 <button id="changeOrderTime" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime()">
-                 <span class="glyphicon glyphicon-edit"></span></button>               
-                  
-                <button type="submit" class="btn btn-default btn-xs" id="imgIn" style="margin-right:10px;">
-                    <span class="glyphicon glyphicon-save"></span></button>
-                <button type="submit" class="btn btn-default btn-xs deletebutton1" id="delete" >
-                    <span class="glyphicon glyphicon-remove"></span></button></td>
-            </tr>
-            <tr>
-              <td class="tdcenter"><input name="subBox" type="checkbox" value="" /></td>
-              <td><img src="images/file/f01.png" style="margin-right:10px;"/>
-                  <span id="OrderTime2" style="color:black">学习</span><input type="text" id="OrderTimeInput2" style="display:none"/>
-                 <!--  <button id="changeOrderTime2" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime2()">
-                  <span class="glyphicon glyphicon-edit"></span></button> -->
-                  <button id="timeChangeOK2" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-ok"></span></button>
-                  <button id="timeChangeRemove2" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-remove"></span></button>
-              </td>
-              <td>2.6G</td>
-              <td>2016-04-26</td>
-              <td class="tdcenter">
-                <button id="changeOrderTime2" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime2()">
-                  <span class="glyphicon glyphicon-edit"></span></button>
-                <button type="button" class="btn btn-default btn-xs" style="margin-right:10px;" id="modify" onclick="">
-                    <span class="glyphicon glyphicon-save"></span></button>
-                <button type="button" class="btn btn-default btn-xs deletebutton1" id="delete" >
-                    <span class="glyphicon glyphicon-remove"></span></button></td>                   
-                  
-            </tr>
-              <tr>
-              <td class="tdcenter"><input name="subBox" type="checkbox" value="" /></td>
-              <td><img src="images/file/f01.png" style="margin-right:10px;"/>
-                  <span id="OrderTime3" style="color:black">图片</span><input type="text" id="OrderTimeInput3" style="display:none"/>
-                  <!-- <button id="changeOrderTime3" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime3()">
-                  <span class="glyphicon glyphicon-edit"></span></button> -->
-                  <button id="timeChangeOK3" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-ok"></span></button>
-                  <button id="timeChangeRemove3" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-remove"></span></button>
-              </td>
-          
-              <td>704M</td>
-              <td>2016-04-20</td>
-              <td class="tdcenter">
-              	<button id="changeOrderTime3" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime3()">
-                  <span class="glyphicon glyphicon-edit"></span></button>
-                <button type="button" class="btn btn-xs btn-default" id="" style="margin-right:10px;" onclick="">
-                    <span class="glyphicon glyphicon-save"></span></button>
-                <button type="button" class="btn btn-default btn-xs deletebutton1" id="delete" >
-                    <span class="glyphicon glyphicon-remove"></span></button></td>
-                  
-            </tr>  
-            <tr>
-              <td class="tdcenter"><input name="subBox" type="checkbox" value="" /></td>
-              <td><img src="images/file/f01.png" style="margin-right:10px;"/>
-                  <span id="OrderTime4" style="color:black">Hadoop</span><input type="text" id="OrderTimeInput4" style="display:none"/>
-                  <!-- <button id="changeOrderTime4" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime4()">
-                  <span class="glyphicon glyphicon-edit"></span></button> -->
-                  <button id="timeChangeOK4" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-ok"></span></button>
-                  <button id="timeChangeRemove4" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-remove"></span></button>
-              </td>
-              <td>2.8G</td>
-              <td>2016-04-20</td>
-              <td class="tdcenter">
-              	<button id="changeOrderTime4" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime4()">
-                  <span class="glyphicon glyphicon-edit"></span></button>
-                <button type="button" class="btn btn-default btn-xs" id="modify" style="margin-right:10px;" onclick="">
-                    <span class="glyphicon glyphicon-save"></span></button>
-                <button type="button" class="btn btn-default btn-xs deletebutton1" id="delete">
-                    <span class="glyphicon glyphicon-remove"></span></button></td>
-                  
-            </tr>                     
-              <tr>
-              <td class="tdcenter"><input name="subBox" type="checkbox" value="" /></td>
-              <td><img src="images/file/f02.png" style="margin-right:10px;"/>          
-                  <span id="OrderTime5" style="color:black">SWiSHmax.rar</span><input type="text" id="OrderTimeInput5" style="display:none"/>
-                  <!-- <button id="changeOrderTime5" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime5()">
-                  <span class="glyphicon glyphicon-edit"></span></button> -->
-                  <button id="timeChangeOK5" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-ok"></span></button>
-                  <button id="timeChangeRemove5" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-remove"></span></button>
-              </td>
-              <td>123M</td>
-              <td>2016-04-15</td>
-              <td class="tdcenter">
-              	<button id="changeOrderTime5" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime5()">
-                  <span class="glyphicon glyphicon-edit"></span></button>
-                <button type="button" class="btn btn-default btn-xs" style="margin-right:10px;" id="modify" onclick="">
-                    <span class="glyphicon glyphicon-save"></span></button>
-                <button type="button" class="btn btn-default btn-xs deletebutton1" id="delete">
-                    <span class="glyphicon glyphicon-remove"></span></button></td>                 
-            </tr>
-            
-            <tr>
-              <td class="tdcenter"><input name="subBox" type="checkbox" value="" /></td>
-              <td><img src="images/file/f05.png" style="margin-right:10px;"/>             
-                  <span id="OrderTime6" style="color:black">php.ini.xls</span><input type="text" id="OrderTimeInput6" style="display:none"/>
-                  <!-- <button id="changeOrderTime6" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime6()">
-                  <span class="glyphicon glyphicon-edit"></span></button> -->
-                  <button id="timeChangeOK6" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-ok"></span></button>
-                  <button id="timeChangeRemove6" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-remove"></span></button>
-              </td>
-              
-              <td>100K</td>
-              <td>2016-03-01</td>
-              <td class="tdcenter">
-              	<button id="changeOrderTime6" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime6()">
-                  <span class="glyphicon glyphicon-edit"></span></button>
-                <button type="button" class="btn btn-default btn-xs" style="margin-right:10px;" id="modify" onclick="">
-                    <span class="glyphicon glyphicon-save"></span></button>
-                <button type="button" class="btn btn-default btn-xs deletebutton1" id="delete" >
-                    <span class="glyphicon glyphicon-remove"></span></button></td>                 
-            </tr>
-            
-             <tr>
-              <td class="tdcenter"><input name="subBox" type="checkbox" value="" /></td>
-              <td><img src="images/file/f03.png" style="margin-right:10px;"/>              
-                  <span id="OrderTime7" style="color:black">福昕阅读器_5.1.0.1117.exe</span>
-                  <input type="text" id="OrderTimeInput7" style="display:none"/>
-                  <!-- <button id="changeOrderTime7" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime7()">
-                  <span class="glyphicon glyphicon-edit"></span></button> -->
-                  <button id="timeChangeOK7" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-ok"></span></button>
-                  <button id="timeChangeRemove7" type="button" class="btn btn-default btn-xs" style="display:none">
-                  <span class="glyphicon glyphicon-remove"></span></button>
-              </td>
-              <td>33.5M</td>
-              <td>2016-02-25</td>
-              <td class="tdcenter">
-              	<button id="changeOrderTime7" type="button" class="btn btn-default btn-xs" style="margin-right:10px;" onclick="changeOrderTime7()">
-                  <span class="glyphicon glyphicon-edit"></span></button>
-                <button type="button" class="btn btn-default btn-xs" style="margin-right:10px;" id="modify" onclick="">
-                    <span class="glyphicon glyphicon-save"></span></button>
-                <button type="button" class="btn btn-default btn-xs deletebutton1" id="delete" >
-                    <span class="glyphicon glyphicon-remove"></span></button></td>                  
-            </tr>
-          </tbody>
-        </table>
+    <div class="pic-content">
+    	<div class="module-history-list">
+			<span class="history-list-dir" style="margin-right:10px;" id="allfile">全部文件</span>
+			<span class="history-list-tips"  id="allfilecount">已加载100个</span>
+			<ol class="breadcrumb" id="breadcrumb" style="display:none">
+	  		<li><a href="file_all.html">全部文件</a></li>
+  			<li><a href="" id="lastfile">返回上一级</a></li> 			
+  			<li class="active" id = "openfilename">学习</li>
+  			<span class="history-list-tips">已加载100个</span>
+		    </ol>			
+		    							  
+    	</div>
+    	
+     	<div class="list-view-header list-header-visible-operate">
+					<div class="list-header">
+						<ul class="grid-cols">
+							<li class="col first-col">
+								<div class="col-item check">
+									<input name="select_all_file" class="check-icon" type="checkbox"/>
+								</div>
+							</li>
+						</ul>
+						<div class="list-header-operatearea global-clearfix">
+							<span class="count-tips">已选中0个文件/文件夹</span>
+							<input value=0 class="count" style="display:none"/>
+							<div class="list-header-operate" style="white-space: nowrap; position: relative;">
+								<div class="operate">
+									<div class="g-button sharebutton" href="javascipt:void(0);">
+										<span class="g-button-right">
+											<em class="icon icon-share-gray" title="分享">
+											</em>
+											<span class="text" style="width:auto;">分享</span>
+										</span>
+									</div>
+									<div class="g-button" href="" id = "download">
+										<span class="g-button-right">
+											<em class="icon icon-download-gray" title="下载">
+											</em>
+											<span class="text" style="width:auto;">下载</span>
+										</span>
+									</div>
+									<div class="g-button deletebutton" href="" id = "delete">
+										<span class="g-button-right">
+											<em class="icon icon-delete" title="删除">
+											</em>
+											<span class="text" style="width:auto;">删除</span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+  
+    <!-- 列表 -->
+    		<div class="list-view-container" style="display:block" >
+					<div class="module-list-view" id="modulelist" >
+						<div class="list-view" id="list">						
+							<dd class="g-clearfix list-view-item">
+								<input name="file" class="my_checkbox" type="checkbox"/>
+								<div class="fileicon fileicon-small-file"></div>
+								<div class="file-name" style="width:60%">
+									<div class="text" >
+										<a class="filename" title="" id="FileName" name="FileName">学习</a>
+										<input type="text" id="FileNameInput" style="display:none;height:25px;width:150px; solid #369"/>
+										<button id="ChangeOK" type="button" class="btn btn-default btn-xs" style="display:none">
+										<span class="glyphicon glyphicon-ok"></span></button>
+										<button id="ChangeRemove" type="button" class="btn btn-default btn-xs" style="display:none">
+										<span class="glyphicon glyphicon-remove"></span></button>
+									</div>
+									<div class="operate">
+										<div class="g-button sharebutton" href="javascipt:void(0);">
+											<span class="g-button-right">
+												<em class="icon icon-share-blue" title="分享">
+												</em>
+											</span>
+										</div>
+										<a class="g-button" href="">
+											<span class="g-button-right">
+												<em class="icon icon-download-blue" title="下载">
+												</em>
+											</span>
+										</a>
+										<div class="g-button" href="javascipt:void(0);">
+											<span class="g-button-right">
+												<em class="icon icon-gengduo-blue gengduo-button1" title="更多">
+												</em>
+											</span>
+											<span style="width: 64px; display:none;" class="menu">
+												<span data-menu-id="b-menu5" data-excludedir="apps,来自PC的备份文件,百度云收藏" class="g-button-menu rename" href="javascript:void(0);">重命名
+												</span>
+												<span data-menu-id="b-menu6" data-excludedir="apps,来自PC的备份文件,百度云收藏" class="g-button-menu deletebutton" href="javascript:void(0);">删除
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="file-size" style="width:16%">1.2G</div>
+								<div class="ctime" style="width:23%">2016-05-06 17:16</div>
+							</dd>
+							<dd class="g-clearfix list-view-item">
+								<input name="file" class="my_checkbox" type="checkbox"/>
+								<div class="fileicon fileicon-small-file"></div>
+								<div class="file-name" style="width:60%">
+									<div class="text">
+										<a class="filename" href="#" title="">动漫</a>
+									</div>
+									<div class="operate">
+										<div class="g-button sharebutton" href="javascipt:void(0);">
+											<span class="g-button-right">
+												<em class="icon icon-share-blue" title="分享">
+												</em>
+											</span>
+										</div>
+										<a class="g-button" href="">
+											<span class="g-button-right">
+												<em class="icon icon-download-blue" title="下载">
+												</em>
+											</span>
+										</a>
+										<div class="g-button" href="javascipt:void(0);">
+											<span class="g-button-right">
+												<em class="icon icon-gengduo-blue gengduo-button1" title="更多">
+												</em>
+											</span>
+											<span style="width: 64px; display:none;" class="menu">
+												<span data-menu-id="b-menu5" data-excludedir="apps,来自PC的备份文件,百度云收藏" class="g-button-menu rename" href="javascript:void(0);">重命名
+												</span>
+												<span data-menu-id="b-menu6" data-excludedir="apps,来自PC的备份文件,百度云收藏" class="g-button-menu deletebutton" href="javascript:void(0);">删除
+												</span>
+											</span>
+										</div>	
+									</div>
+								</div>
+								<div class="file-size" style="width:16%">10G</div>
+								<div class="ctime" style="width:23%">2016-05-06 17:16</div>
+							</dd>
+							
+							<dd class="g-clearfix list-view-item">
+								<input name="file" class="my_checkbox" type="checkbox"/>
+								<div class="fileicon fileicon-small-file"></div>
+								<div class="file-name" style="width:60%">
+									<div class="text">
+										<a class="filename" href="#" title="">图片</a>
+									</div>
+									<div class="operate">
+										<div class="g-button sharebutton" href="javascipt:void(0);">
+											<span class="g-button-right">
+												<em class="icon icon-share-blue" title="分享">
+												</em>
+											</span>
+										</div>
+										<a class="g-button" href="">
+											<span class="g-button-right">
+												<em class="icon icon-download-blue" title="下载">
+												</em>
+											</span>
+										</a>
+										<div class="g-button" href="javascipt:void(0);">
+											<span class="g-button-right">
+												<em class="icon icon-gengduo-blue gengduo-button1" title="更多">
+												</em>
+											</span>
+											<span style="width: 64px; display:none;" class="menu">
+												<span data-menu-id="b-menu5" data-excludedir="apps,来自PC的备份文件,百度云收藏" class="g-button-menu rename" href="javascript:void(0);">重命名
+												</span>
+												<span data-menu-id="b-menu6" data-excludedir="apps,来自PC的备份文件,百度云收藏" class="g-button-menu deletebutton" href="javascript:void(0);">删除
+												</span>
+											</span>
+										</div>	
+									</div>
+								</div>
+								<div class="file-size" style="width:16%">1.4G</div>
+								<div class="ctime" style="width:23%">2016-05-06 17:16</div>
+							</dd>
+							<dd class="g-clearfix list-view-item">
+								<input name="file" class="my_checkbox" type="checkbox"/>
+								<div class="fileicon fileicon-small-rar"></div>
+								<div class="file-name" style="width:60%">
+									<div class="text">
+										<a class="filename" href="#" title="">SWiSHmax.rar</a>
+									</div>
+									<div class="operate">
+										<div class="g-button sharebutton" href="javascipt:void(0);">
+											<span class="g-button-right">
+												<em class="icon icon-share-blue" title="分享">
+												</em>
+											</span>
+										</div>
+										<a class="g-button" href="">
+											<span class="g-button-right">
+												<em class="icon icon-download-blue" title="下载">
+												</em>
+											</span>
+										</a>
+										<div class="g-button" href="javascipt:void(0);">
+											<span class="g-button-right">
+												<em class="icon icon-gengduo-blue gengduo-button1" title="更多">
+												</em>
+											</span>
+											<span style="width: 64px; display:none;" class="menu">
+												<span data-menu-id="b-menu5" data-excludedir="apps,来自PC的备份文件,百度云收藏" class="g-button-menu rename" href="javascript:void(0);">重命名
+												</span>
+												<span data-menu-id="b-menu6" data-excludedir="apps,来自PC的备份文件,百度云收藏" class="g-button-menu deletebutton" href="javascript:void(0);">删除
+												</span>
+											</span>
+										</div>	
+									</div>
+								</div>
+								<div class="file-size" style="width:16%">325M</div>
+								<div class="ctime" style="width:23%">2016-05-06 17:16</div>
+							</dd>
+							<dd class="g-clearfix list-view-item">
+								<input name="file" class="my_checkbox" type="checkbox"/>
+								<div class="fileicon fileicon-small-excel"></div>
+								<div class="file-name" style="width:60%">
+									<div class="text">
+										<a class="filename" href="#" title="">php.ini.xls</a>
+									</div>
+									<div class="operate">
+										<div class="g-button sharebutton" href="javascipt:void(0);">
+											<span class="g-button-right">
+												<em class="icon icon-share-blue" title="分享">
+												</em>
+											</span>
+										</div>
+										<a class="g-button" href="">
+											<span class="g-button-right">
+												<em class="icon icon-download-blue" title="下载">
+												</em>
+											</span>
+										</a>
+										<div class="g-button" href="javascipt:void(0);">
+											<span class="g-button-right">
+												<em class="icon icon-gengduo-blue gengduo-button1" title="更多">
+												</em>
+											</span>
+											<span style="width: 64px; display:none;" class="menu">
+												<span data-menu-id="b-menu5" data-excludedir="apps,来自PC的备份文件,百度云收藏" class="g-button-menu rename" href="javascript:void(0);">重命名
+												</span>
+												<span data-menu-id="b-menu6" data-excludedir="apps,来自PC的备份文件,百度云收藏" class="g-button-menu deletebutton" href="javascript:void(0);">删除
+												</span>
+											</span>
+										</div>	
+									</div>
+								</div>
+								<div class="file-size" style="width:16%">174K</div>
+								<div class="ctime" style="width:23%">2016-05-06 17:16</div>
+							</dd>
+							
+							
+							
+							
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+ 
         <!-- 分页 -->
         <center>
           <ul class="pagination" >
@@ -540,6 +584,7 @@
   </div>
 </div>
        
+       
 <div id="confirm" class="dialog dialog-confirm">
 	<div class="dialog-header dialog-drag">
 		<h3>
@@ -583,34 +628,11 @@
         </div>
     </footer><!--/#footer-->
 
-    <script src="js/jquery.js"></script>
+
+
     <script type="text/javascript">
         $('.carousel').carousel()
     </script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/wow.min.js"></script>
-    
-    <!-- 选中所有文件,显示隐藏的按钮 -->
-    <script src="http://code.jquery.com/jquery-1.4.4.min.js" type="text/javascript"></script>    <script type="text/javascript">
-        $(function() {
-           $("#checkAll").click(function() {
-                $('input[name="subBox"]').attr("checked",this.checked);  
-                $("#shareshare").show();
-                $("#download").show();
-                $("#delete").show();
-            });
-               
-            var $subBox = $("input[name='subBox']");
-            $subBox.click(function(){
-                $("#checkAll").attr("checked",$subBox.length == $("input[name='subBox']:checked").length ? true : false);
-                
-            });
-        });
-    </script>
-    
 
 	
 	<!-- 文件上传 -->
@@ -619,208 +641,15 @@
     { 
         document.test_form.browse.click(); 
         document.test_form.file.value = document.all.test_form.browse.value; 
-    }
+    }   
+  
     </script>
-    
-    <!-- 文件名修改 -->    
-    <script> 
-    function changeOrderTime(){
-        var spanValue = $("#OrderTime").text();
-        $("#OrderTimeInput").val(spanValue);
-        $("#OrderTimeInput").show();
-        $("#OrderTime").hide();
-        $("#changeOrderTime").hide();
-        $("#timeChangeOK").show();
-        $("#timeChangeRemove").show();
-        
-        $("#timeChangeOK").click(function(){
-            var inputValue = $("#OrderTimeInput").val();
-            $("#OrderTime").text(inputValue);
-            $("#OrderTimeInput").hide();
-            $("#OrderTime").show();
-            $("#changeOrderTime").show();
-            $("#timeChangeOK").hide();
-            $("#timeChangeRemove").hide();
-        });
-        $("#timeChangeRemove").click(function(){
-            var inputValue = $("#OrderTime").text();
-            $("#OrderTime").text(inputValue);
-            $("#OrderTimeInput").hide();
-            $("#OrderTime").show();
-            $("#changeOrderTime").show();
-            $("#timeChangeOK").hide();
-            $("#timeChangeRemove").hide();
-        });
-     }
-     function changeOrderTime2(){    
-        var spanValue = $("#OrderTime2").text();
-        $("#OrderTimeInput2").val(spanValue);
-        $("#OrderTimeInput2").show();
-        $("#OrderTime2").hide();
-        $("#changeOrderTime2").hide();
-        $("#timeChangeOK2").show();
-        $("#timeChangeRemove2").show();
-        
-        $("#timeChangeOK2").click(function(){
-            var inputValue = $("#OrderTimeInput2").val();
-            $("#OrderTime2").text(inputValue);
-            $("#OrderTimeInput2").hide();
-            $("#OrderTime2").show();
-            $("#changeOrderTime2").show();
-            $("#timeChangeOK2").hide();
-            $("#timeChangeRemove2").hide();
-        });
-        $("#timeChangeRemove2").click(function(){
-            var inputValue = $("#OrderTime2").text();
-            $("#OrderTime2").text(inputValue);
-            $("#OrderTimeInput2").hide();
-            $("#OrderTime2").show();
-            $("#changeOrderTime2").show();
-            $("#timeChangeOK2").hide();
-            $("#timeChangeRemove2").hide();
-        });
-     }
-     function changeOrderTime3(){    
-        var spanValue = $("#OrderTime3").text();
-        $("#OrderTimeInput3").val(spanValue);
-        $("#OrderTimeInput3").show();
-        $("#OrderTime3").hide();
-        $("#changeOrderTime3").hide();
-        $("#timeChangeOK3").show();
-        $("#timeChangeRemove3").show();
-        
-        $("#timeChangeOK3").click(function(){
-            var inputValue = $("#OrderTimeInput3").val();
-            $("#OrderTime3").text(inputValue);
-            $("#OrderTimeInput3").hide();
-            $("#OrderTime3").show();
-            $("#changeOrderTime3").show();
-            $("#timeChangeOK3").hide();
-            $("#timeChangeRemove3").hide();
-        });
-        $("#timeChangeRemove3").click(function(){
-            var inputValue = $("#OrderTime3").text();
-            $("#OrderTime3").text(inputValue);
-            $("#OrderTimeInput3").hide();
-            $("#OrderTime3").show();
-            $("#changeOrderTime3").show();
-            $("#timeChangeOK3").hide();
-            $("#timeChangeRemove3").hide();
-        });
-     }
-     function changeOrderTime4(){     
-        var spanValue = $("#OrderTime4").text();
-        $("#OrderTimeInput4").val(spanValue);
-        $("#OrderTimeInput4").show();
-        $("#OrderTime4").hide();
-        $("#changeOrderTime4").hide();
-        $("#timeChangeOK4").show();
-        $("#timeChangeRemove4").show();
-        
-        $("#timeChangeOK4").click(function(){
-            var inputValue = $("#OrderTimeInput4").val();
-            $("#OrderTime4").text(inputValue);
-            $("#OrderTimeInput4").hide();
-            $("#OrderTime4").show();
-            $("#changeOrderTime4").show();
-            $("#timeChangeOK4").hide();
-            $("#timeChangeRemove4").hide();
-        });
-        $("#timeChangeRemove4").click(function(){
-            var inputValue = $("#OrderTime4").text();
-            $("#OrderTime4").text(inputValue);
-            $("#OrderTimeInput4").hide();
-            $("#OrderTime4").show();
-            $("#changeOrderTime4").show();
-            $("#timeChangeOK4").hide();
-            $("#timeChangeRemove4").hide();
-        });
-     }
-     function changeOrderTime5(){    
-        var spanValue = $("#OrderTime5").text();
-        $("#OrderTimeInput5").val(spanValue);
-        $("#OrderTimeInput5").show();
-        $("#OrderTime5").hide();
-        $("#changeOrderTime5").hide();
-        $("#timeChangeOK5").show();
-        $("#timeChangeRemove5").show();
-        
-        $("#timeChangeOK5").click(function(){
-            var inputValue = $("#OrderTimeInput5").val();
-            $("#OrderTime5").text(inputValue);
-            $("#OrderTimeInput5").hide();
-            $("#OrderTime5").show();
-            $("#changeOrderTime5").show();
-            $("#timeChangeOK5").hide();
-            $("#timeChangeRemove5").hide();
-        });
-        $("#timeChangeRemove5").click(function(){
-            var inputValue = $("#OrderTime5").text();
-            $("#OrderTime5").text(inputValue);
-            $("#OrderTimeInput5").hide();
-            $("#OrderTime5").show();
-            $("#changeOrderTime5").show();
-            $("#timeChangeOK5").hide();
-            $("#timeChangeRemove5").hide();
-        });
-     }
-     function changeOrderTime6(){    
-        var spanValue = $("#OrderTime6").text();
-        $("#OrderTimeInput6").val(spanValue);
-        $("#OrderTimeInput6").show();
-        $("#OrderTime6").hide();
-        $("#changeOrderTime6").hide();
-        $("#timeChangeOK6").show();
-        $("#timeChangeRemove6").show();
-        
-        $("#timeChangeOK6").click(function(){
-            var inputValue = $("#OrderTimeInput6").val();
-            $("#OrderTime6").text(inputValue);
-            $("#OrderTimeInput6").hide();
-            $("#OrderTime6").show();
-            $("#changeOrderTime6").show();
-            $("#timeChangeOK6").hide();
-            $("#timeChangeRemove6").hide();
-        });
-        $("#timeChangeRemove6").click(function(){
-            var inputValue = $("#OrderTime6").text();
-            $("#OrderTime6").text(inputValue);
-            $("#OrderTimeInput6").hide();
-            $("#OrderTime6").show();
-            $("#changeOrderTime6").show();
-            $("#timeChangeOK6").hide();
-            $("#timeChangeRemove6").hide();
-        });
-     }
-     function changeOrderTime7(){   
-        var spanValue = $("#OrderTime7").text();
-        $("#OrderTimeInput7").val(spanValue);
-        $("#OrderTimeInput7").show();
-        $("#OrderTime7").hide();
-        $("#changeOrderTime7").hide();
-        $("#timeChangeOK7").show();
-        $("#timeChangeRemove7").show();
-        
-        $("#timeChangeOK7").click(function(){
-            var inputValue = $("#OrderTimeInput7").val();
-            $("#OrderTime7").text(inputValue);
-            $("#OrderTimeInput7").hide();
-            $("#OrderTime7").show();
-            $("#changeOrderTime7").show();
-            $("#timeChangeOK7").hide();
-            $("#timeChangeRemove7").hide();
-        });
-        $("#timeChangeRemove7").click(function(){
-            var inputValue = $("#OrderTime7").text();
-            $("#OrderTime7").text(inputValue);
-            $("#OrderTimeInput7").hide();
-            $("#OrderTime7").show();
-            $("#changeOrderTime7").show();
-            $("#timeChangeOK7").hide();
-            $("#timeChangeRemove7").hide();
-        });
-    }
-    </script>
-    
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/file_all.js"></script>
+    <script src="js/wow.min.js"></script>
 </body>
 </html>
