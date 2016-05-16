@@ -7,7 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -18,8 +20,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import cn.edu.bjtu.model.FileEntity;
+import cn.edu.bjtu.service.IFileService;
 import cn.edu.bjtu.utils.FileBasePathUtil;
 import cn.edu.bjtu.utils.file.FileUtil;
 import cn.edu.bjtu.utils.file.TrashUtil;
@@ -34,34 +39,22 @@ import cn.edu.bjtu.utils.file.TrashUtil;
  * */
 @Controller
 public class FilesController {
+	@Resource
+	private IFileService fileService;
 
-    @RequestMapping(value="/cloudDisk.do",
+	@RequestMapping(value="/cloudDisk.do",
             method=RequestMethod.GET)  
     @ResponseStatus(HttpStatus.OK)  
-	public String getFiles(Model model,
+	public @ResponseBody List<FileEntity> getFiles(Model model,
 			 HttpSession session, HttpServletRequest request
 			){
+		String username = "test";
+		
+		// targetPath 上传文件所在路径
+		String targetPath = FileBasePathUtil.getFileBasePath() + "/" + username + "/";
+    	return this.fileService.getFiles(targetPath); 
     	
-    	//currentBasePath 当前工作路径
-    	String currentBasePath = null;
-    	
-    	//通过session设置或者获取工作路径
-    	if(session.getAttribute("currentPath") == null){
-    		currentBasePath = FileBasePathUtil.getFileBasePath();
-    		session.setAttribute("currentPath", currentBasePath);
-    	}
-    	currentBasePath=(String)session.getAttribute("currentPath");
-
-    	
-		model.addAttribute("files",
-				 new FileUtil().getChildFilenames(currentBasePath)
-		);
-		model.addAttribute("directorys",
-				new FileUtil().getSubdirectories(currentBasePath)
-			);
-		return "WEB-INF/jsp/file_all";
 	}
-    
     @RequestMapping(value = "cloudDisk/{path}",
             method=RequestMethod.GET)  
     @ResponseStatus(HttpStatus.OK)  
