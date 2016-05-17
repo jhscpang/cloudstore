@@ -6,6 +6,7 @@ package cn.edu.bjtu.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.Date;
 
 import javax.annotation.Resource;
 
@@ -18,8 +19,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import cn.edu.bjtu.model.FileEntity;
+import cn.edu.bjtu.model.FileFormate;
 import cn.edu.bjtu.service.IFileService;
 import cn.edu.bjtu.utils.FileBasePathUtil;
+import cn.edu.bjtu.utils.file.FileType;
 
 /**
  * @author phobes
@@ -36,7 +39,8 @@ public class UploadDownloadController {
 			try {
 				//String username = this.getAuthenticatedUsername();
 				String username = "test";
-				String fileName = file.getName();
+				String fileName = file.getOriginalFilename();
+				System.out.println(file.getContentType());
 				
 				// targetPath 上传文件所在路径
 				String targetPath = FileBasePathUtil.getFileBasePath() + "/" + username + "/";
@@ -50,17 +54,24 @@ public class UploadDownloadController {
 				BufferedOutputStream stream = new BufferedOutputStream(
 						new FileOutputStream(new File(targetPath + fileName)));
                 FileCopyUtils.copy(file.getInputStream(), stream);
+                //获取文件后缀名
+                String sufix=fileName.substring(fileName.lastIndexOf(".")+1);
+                
+                System.out.println(sufix);
                 FileEntity fileEntity = new FileEntity();
+                fileEntity.setPath(targetPath);
                 fileEntity.setFilename(file.getName());
                 fileEntity.setSize(file.getSize());
+                fileEntity.setUpload_time(new Date());
+                FileFormate fileType = new FileType().getFileType(sufix.toLowerCase());
+                fileEntity.setFileFormate(fileType);
+                
                 fileService.addFile(fileEntity);
-				stream.close();
-//				
+				stream.close();			
 			}
 			catch (Exception e) {
 				System.out.println(e.getMessage());
-//				redirectAttributes.addFlashAttribute("message",
-//						"You failed to upload " + name + " => " + e.getMessage());
+
 			}
 		}
 		else {
