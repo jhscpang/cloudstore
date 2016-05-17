@@ -30,7 +30,7 @@ public class FileEntity {
 	private int can_shared;//是否可以共享
 	private int state;
 	private int version_id;
-	private String path;
+	private String path; //文件所在文件夹
 	
 	
 

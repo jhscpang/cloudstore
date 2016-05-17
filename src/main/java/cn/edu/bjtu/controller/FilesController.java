@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -24,8 +25,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import cn.edu.bjtu.model.FileEntity;
+import cn.edu.bjtu.model.FileFormate;
 import cn.edu.bjtu.service.IFileService;
 import cn.edu.bjtu.utils.FileBasePathUtil;
+import cn.edu.bjtu.utils.file.FileType;
 import cn.edu.bjtu.utils.file.FileUtil;
 import cn.edu.bjtu.utils.file.TrashUtil;
 
@@ -67,16 +70,26 @@ public class FilesController {
      * 
      * 新建文件夹
      * */
-    @RequestMapping(value="/cloudDisk",
+    @RequestMapping(value="/cloudDisk/addDir.do",
             method=RequestMethod.POST)  
     @ResponseStatus(HttpStatus.OK)  
-	public String addDir(@RequestParam String path,
-		HttpSession session){
-
-		String currentPath = (String)session.getAttribute("currentPath") + "/" + path;
+	public @ResponseBody void addDir(@RequestParam String foldername
+			//,
+		//HttpSession session
+			){
+        String username = "test";
+		//String currentPath = (String)session.getAttribute("currentPath") + "/" + foldername;
+		String targetPath = FileBasePathUtil.getFileBasePath() + "/" + username + "/";
+		String currentPath = targetPath + foldername;
 		new File(currentPath).mkdir();
-		
-		return "redirect:cloudDisk";
+	       FileEntity fileEntity = new FileEntity();
+           fileEntity.setPath(targetPath);
+           fileEntity.setFilename(foldername);
+          
+           fileEntity.setUpload_time(new Date());
+           fileEntity.setFileFormate(FileFormate.Dir);
+           
+           fileService.addFile(fileEntity);
 	}
     /* 
      * 删除文件或文件夹
