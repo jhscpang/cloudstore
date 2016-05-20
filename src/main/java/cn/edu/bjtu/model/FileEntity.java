@@ -7,6 +7,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +30,7 @@ public class FileEntity {
 	
 	private Date upload_time;
 	private int can_shared;//是否可以共享
-	private int state;
+	private int state;//0表示不可用，在回收站里，1表示可用
 	private int version_id;
 	private String path; //文件所在文件夹
 	
@@ -56,8 +58,8 @@ public class FileEntity {
 	public String getFilename() {
 		return filename;
 	}
-	
-	@Column(name = "FILEFORNATE", nullable = true)
+	@Enumerated(EnumType.STRING)
+	@Column(name = "FILEFORMATE", nullable = true)
 	public FileFormate getFileFormate() {
 		return fileFormate;
 	}

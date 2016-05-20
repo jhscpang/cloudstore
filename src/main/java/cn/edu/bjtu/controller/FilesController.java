@@ -18,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,6 +31,7 @@ import cn.edu.bjtu.service.IFileService;
 import cn.edu.bjtu.utils.FileBasePathUtil;
 import cn.edu.bjtu.utils.file.FileType;
 import cn.edu.bjtu.utils.file.FileUtil;
+import cn.edu.bjtu.utils.file.RenameFile;
 import cn.edu.bjtu.utils.file.TrashUtil;
 
 /**
@@ -45,7 +47,7 @@ public class FilesController {
 	@Resource
 	private IFileService fileService;
 
-	@RequestMapping(value="/cloudDisk.do",
+	@RequestMapping(value="/cloudDisk",
             method=RequestMethod.GET)  
     @ResponseStatus(HttpStatus.OK)  
 	public @ResponseBody List<FileEntity> getFiles(Model model,
@@ -53,17 +55,27 @@ public class FilesController {
 			){
 		String username = "test";
 		
+		
 		// targetPath 上传文件所在路径
 		String targetPath = FileBasePathUtil.getFileBasePath() + "/" + username + "/";
+		//设置当前工作路径；
+		session.setAttribute("currentWorkPath", targetPath);
+		
     	return this.fileService.getFiles(targetPath); 
     	
 	}
-    @RequestMapping(value = "cloudDisk/{path}",
+	
+	//获得目录下所有文件
+    @RequestMapping(value = "cloudDisk/childfiles",
             method=RequestMethod.GET)  
     @ResponseStatus(HttpStatus.OK)  
-	public String getFilesagain(@PathVariable String path, HttpSession session, Model model){
-		String currentBasePath = (String) session.getAttribute("currentPath") + "/" + path;
-		return "redirect:cloudDisk";
+	public  @ResponseBody List<FileEntity> getFilesByPath(
+			//@RequestBody  FileEntity file, HttpSession session){
+			@RequestParam  int id, HttpSession session){
+		FileEntity file = fileService.getFile(id);
+		//设置当前工作路径；
+		session.setAttribute("currentWorkPath", file.getPath()+file.getFilename());
+		return fileService.getFiles(file.getPath()+file.getFilename());
 	}
     
     /*
@@ -88,29 +100,69 @@ public class FilesController {
           
            fileEntity.setUpload_time(new Date());
            fileEntity.setFileFormate(FileFormate.Dir);
-           
+           fileEntity.setState(1);
            fileService.addFile(fileEntity);
 	}
     /* 
      * 删除文件或文件夹
      * url: cloudDisk/filename
      * */
-    @RequestMapping(value="cloudDisk/{filename}",
-            method=RequestMethod.DELETE)  
+    @RequestMapping(value="/cloudDisk/edit.do",
+            method=RequestMethod.POST)  
     @ResponseStatus(HttpStatus.OK)  
-	public String deleteFile(@PathVariable("filename")  String fileName,
-		HttpSession session){
-		String sourceName = (String)session.getAttribute("currentPath") + "/" + fileName;
-		String targetName = (String)session.getAttribute("currentPath") + "/" + TrashUtil.getTrashUtilName() + fileName;
-		//把文件放到回收站
-		Path source = new File(sourceName).toPath();
-		Path target = new File(targetName).toPath();
-		try {
-			Files.move(source, target);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
-		return "redirect:cloudDisk";
+	public void editFile(@RequestBody FileEntity file){
+    	FileEntity oldFile = fileService.getFile(file.getId());
+    	
+    	RenameFile.renameFile(oldFile.getPath(), oldFile.getFilename(), file.getFilename());
+    	fileService.addFile(file);
 	}
+    /* 
+     * 删除文件或文件夹
+     * url: cloudDisk/filename
+     * */
+    @RequestMapping(value="/cloudDisk/delete.do",
+            method=RequestMethod.POST)  
+    @ResponseStatus(HttpStatus.OK)  
+	public void deleteFile(@RequestBody FileEntity file
+		//HttpSession session
+			){
+		file.setState(0);
+		fileService.addFile(file);
+	}
+    /* 
+     * 获得回收站中所有文件或文件夹
+     * url: cloudDisk/filename
+     * */
+    @RequestMapping(value="/cloudDisk/trash",
+            method=RequestMethod.GET)  
+    @ResponseStatus(HttpStatus.OK)  
+	public @ResponseBody List<FileEntity> getTrashFiles(
+			 HttpSession session
+			){
+		String username = "test";
+		
+		// targetPath 上传文件所在路径
+		String targetPath = FileBasePathUtil.getFileBasePath() + "/" + username + "/";
+    	return this.fileService.getTrashFiles(targetPath); 
+    	
+	}
+    /* 
+     * 获得对应类型的所有文件或文件夹
+     * url: cloudDisk/type
+     * @Param type:[video,music,document,picture,folder]
+     * */
+    @RequestMapping(value="/cloudDisk/type",
+            method=RequestMethod.GET)  
+    @ResponseStatus(HttpStatus.OK)  
+	public @ResponseBody List<FileEntity> getFilesByType(@RequestParam String type, Model model,
+			 HttpSession session, HttpServletRequest request
+			){
+		String username = "test";
+		
+		// targetPath 上传文件所在路径
+		String targetPath = FileBasePathUtil.getFileBasePath() + "/" + username + "/";
+    	return this.fileService.getFilesByType(targetPath, type); 
+    	
+	}
+    
 }

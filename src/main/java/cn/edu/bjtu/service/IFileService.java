@@ -16,4 +16,11 @@ public interface IFileService {
 	public FileEntity getFile(int id);
 	public void addFile(FileEntity file);
 	public void deleteFile(int id);
+	List<FileEntity> getTrashFiles(String path);
+	/**
+	 * @param path
+	 * @param type
+	 * @return
+	 */
+	List<FileEntity> getFilesByType(String path, String type);
 }

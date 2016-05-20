@@ -33,4 +33,14 @@ public class FileServiceTest {
 		fileService.addFile(file);
 //		System.out.println(result);
 	}
+	@Test
+	public void getfilesByType(){
+		String path = "home/phobes/cloudStore/upload/admin";
+		FileEntity file = new FileEntity();
+		file.setFilename("haha");
+		
+		List<FileEntity> result = fileService.getFilesByType(path,"image");
+		//fileService.addFile(file);
+//		System.out.println(result);
+	}
 }
