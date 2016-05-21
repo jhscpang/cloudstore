@@ -1,351 +1,435 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Blog Single</title>
-    
-    <!-- core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-	<script src="js/event.js"></script>
-    <script  src="js/tween.js"></script>
-    <!--[if lt IE 9]>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Blog Single</title>
+
+<!-- core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/prettyPhoto.css" rel="stylesheet">
+<link href="css/animate.min.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script src="js/event.js"></script>
+<script src="js/tween.js"></script>
+<!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->       
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
+    <![endif]-->
+<link rel="shortcut icon" href="images/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="images/ico/apple-touch-icon-57-precomposed.png">
+</head>
+<!--/head-->
 
 <body>
 
-    <header id="header">
-        <div class="top-bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-xs-4">
-                        <div class="top-number"><p><i class="fa fa-phone-square"></i>  +0123 456 70 90</p></div>
-                    </div>
-                    <div class="col-sm-6 col-xs-8">
-                       <div class="social">
-                            <ul class="social-share">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                            </ul>
-                            <div class="search">
-                                <form role="form">
-                                    <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                                    <i class="fa fa-search"></i>
-                                </form>
-                           </div>
-                       </div>
-                    </div>
-                </div>
-            </div><!--/.container-->
-        </div><!--/.top-bar-->
+	<header id="header">
+		<div class="top-bar">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-xs-4">
+						<div class="top-number">
+							<p>
+								<i class="fa fa-phone-square"></i> +0123 456 70 90
+							</p>
+						</div>
+					</div>
+					<div class="col-sm-6 col-xs-8">
+						<div class="social">
+							<ul class="social-share">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-skype"></i></a></li>
+							</ul>
+							<div class="search">
+								<form role="form">
+									<input type="text" class="search-form" autocomplete="off"
+										placeholder="Search"> <i class="fa fa-search"></i>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/.container-->
+		</div>
+		<!--/.top-bar-->
 
-        <nav class="navbar navbar-inverse" role="banner">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
-                </div>
-                
-                <div class="collapse navbar-collapse navbar-right">
-                    <ul class="nav navbar-nav">                 
-               
-                        <li><a href="index.html">主页</a></li>
-                        <li><a href="file_all.html">网盘</a></li>  
-                        <li><a href="share.html">分享</a></li>
-                                                               
-                        <li class="dropdown active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">账号中心 <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="active"><a href="pricing.html">个人资料</a></li>
-                                <li><a href="blog-item.html">购买容量</a></li>                               
-                                <li><a href="services.html">会员中心</a></li>                            
-                            </ul>
-                        </li>                     
-                        <li><a href="login.html">登录/注册</a></li>                        
-                    </ul>
-                </div>
-            </div><!--/.container-->
-        </nav><!--/nav-->
-        
-    </header><!--/header-->
+		<nav class="navbar navbar-inverse" role="banner">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html"><img
+						src="images/logo.png" alt="logo"></a>
+				</div>
 
+				<div class="collapse navbar-collapse navbar-right">
+					<ul class="nav navbar-nav">
 
-    <section id="blog" class="container">
-       <div class="tabmain">
-  <div id="outerWrap">
-    <div id="sliderParent"></div>
-    <div class="blueline" id="blueline" style="top: 0px; "></div>
-    <ul class="tabGroup">
-      <li class="tabOption selectedTab">安全设置</li>
-      <li class="tabOption">基本资料</li>
-      <li class="tabOption">账号绑定</li>
-      <li class="tabOption">密码修改</li>
-      <li class="tabOption">实名认证</li>
-      <li class="tabOption">会员权益</li>
-      <li class="tabOption">帮助中心</li>
-    </ul>
-    <div id="container">
-      <div id="content">
-        <div class="tabContent  selectedContent"><!-- 1JavaScript培训:优势 -->
-          <h3 style="">安全设置</h3>
-           <div style="float:left"><img src="images/client2.png"></div>
-           <div style="float:left; margin-left:30px; padding-top:30px;">
-           	<p>登录账号 ： 145903****@qq.com<a> 修改</a> (您已通过实名认证)
+						<li><a href="index.html">主页</a></li>
+						<li><a href="file_all.html">网盘</a></li>
+						<li><a href="share.html">分享</a></li>
 
-<p>账号ID ： 1584347768577691
+						<li class="dropdown active"><a href="#"
+							class="dropdown-toggle" data-toggle="dropdown">账号中心 <i
+								class="fa fa-angle-down"></i></a>
+							<ul class="dropdown-menu">
+								<li class="active"><a href="pricing.html">个人资料</a></li>
+								<li><a href="blog-item.html">购买容量</a></li>
+								<li><a href="services.html">会员中心</a></li>
+							</ul></li>
+						<li><a href="login.html">登录/注册</a></li>
+					</ul>
+				</div>
+			</div>
+			<!--/.container-->
+		</nav>
+		<!--/nav-->
 
-<p>实名认证支付宝账号 ： 145903****@qq.com
-
-<p>注册时间 ：2015-11-17 21:56:17</p>
-<p><span> 云盘等级</span><span style="padding-left:5px;"><img src="images/bb.png"></span><span><strong>LV3</strong></span></p>
-          <p><span><img src="images/kk.png"></span>绑定密保邮箱，提供安全保障<span style="float:right; color:#090; margin-right:5px;" >已设置|<span style="color:red">修改</span></span></p>
- <p><span><img src="images/gg.png"></span>下载安全中心手机版，多种验证方式任你挑选<span style="float:right; color:#090; margin-right:5px;" > 未设置|<span style="color:red">修改</span></span></p>
- <p><span><img src="images/kk.png"></span>开启登录保护，帐号被盗也不用担心<span style="float:right; color:#090; margin-right:5px;" >已设置|<span style="color:red">修改</span></span></p>
-
-           </div>
+	</header>
+	<!--/header-->
 
 
-        </div>
-        <div class="tabContent"><!-- 3 主体课程 -->
-          <h3>基本资料</h3>
-          <dl style="padding-left:5px;">
-            <dt>基本信息：</dt>
-            <p style="padding-left:10px;">云等级：LV3<br/>
-            <p style="padding-left:10px;">真实姓名：*丹<br/></p>
-          </dl>
-          <dl style="padding-left:10px;">
-            <dt class="high">联系信息</dt>
-            <dd><p style="padding-left:10px;">国家/地区<input type="text" style=" width:300px; height:40px; ; border: 1px solid #CCC; margin-left:10px;"></p></dd>
-<dd><p style="padding-left:10px;">地址<input type="text" style=" width:300px; height:40px; ; border: 1px solid #CCC; margin-left:36px;"></p></dd>            
-<dd><p style="padding-left:10px;">电话<input type="text" style=" width:300px; height:40px; ; border: 1px solid #CCC; margin-left:36px;"></p></dd>            
-            
-          </dl>
-          <p style="text-align:center"><input type="button" value="保存" style="width:50px; height:30px; linle
-          30px; background:#666; color:#CCC"></p>
-        </div>
-        <div class="tabContent">
-          <h3>账号绑定</h3>
-          <dl>
-            <dt>最大亮点：</dt>
-            <dd>主流的、引领前沿的新技术，邀请知名公司的前端技术大牛讲解的饕餮大餐，可谓是群星荟萃！我们的目标就是：以珠峰为起点，让你飞的更高！</dd>
-          </dl>
-          <dl>
-            <dt>高端课程：</dt>
-            <dd>
-              <p>1、HTML5移动端开发</p>
-              <p>2、CSS3及响应式布局</p>
-              <p>3、Node.js</p>
-              <p>4、MVC富客户端开发</p>
-              <p>5、angularJS框架</p>
-              <p><img src="images/gdkc.png" alt=""></p>
-            </dd>
-          </dl>
-        </div>
-        <div class="tabContent"><!-- 就业传奇 -->
-          <h3>修改密码</h3>
-         <p style="padding-left:10px;">原始密码<input type="text" style=" width:300px; height:40px; ; border: 1px solid #CCC; margin-left:10px;"></p>
-         <p style="padding-left:10px;">新密码<input type="text" style=" width:300px; height:40px; ; border: 1px solid #CCC; margin-left:20px;"></p>
-         <p style="padding-left:10px;">确认密码<input type="text" style=" width:300px; height:40px; ; border: 1px solid #CCC; margin-left:10px;"></p>
-         <p style=" padding-left:100px;"><input type="button" value="保存" style="width:50px; height:30px; linle
-          30px; background:#999; color:#CCC"><input type="button" value="取消" style="width:50px; height:30px; linle
-          30px; background:#999;; color:#CCC; margin-left:30px;"></p>
-        </div>
-        <div class="tabContent">
-          <h3>实名认证</h3>
-          <dl>
-            <dt>HI,*DAB</dt>
-            <dd>
-              <p style="font-size:16px;">您已成功通过阿里云个人认证！</p>
-            </dd>
-             <dd>
-              <p>若您是企业用户，可通过企业对公帐号打款认证进行变更</p>
-            </dd>
-          </dl>
-          <dl>
-            <dt>认证结果</dt>
-            <dd>
-              <p style=" margin-left:100px;"><img src="images/ll.png"/></p>
-            </dd>
-          </dl>
-          <dl>
-            <dt>学生会的明天</dt>
-            <dd>
-              <p>明天，我们会更好！！珠峰和所有同学共同成长！！我们在一起战斗，不孤单！</p>
-            </dd>
-          </dl>
-          <p><span class="high" style="margin:0 10px;">不定期的组织活动</span><span class="high" style="margin:0 10px;">前沿技术分享</span><span class="high" style="margin:0 10px;">工作的交流推荐平台</span><span class="high" style="margin:0 10px;">展示自己的机会</span></p>
-          <p><a>学生是珠峰的信仰。每一位同学都是佛，我只是一位拜佛人！</a></p>
-        </div>
-        <div class="tabContent" style=""><!--  招聘讲师 -->
-          <h3>会员权益</h3>
-          <dl>
-            <dt>HI *丹</dt>
-            <dd>您是L1会员，尊享2项特权</dd>
-          </dl>
-          <dl>
-            <dt>享受人群</dt>
-            <dd> 百度云根据您的受攻击情况、历史清洗情况等多个指标综合判断后选取了部分L2、L3、L4会员享有此特权，后续将逐步开放。
-说明：享受此会员特权需要有正在使用的产品
-以下情况暂时不享受黑洞提前解除
+	<section id="blog" class="container">
+		<div class="tabmain">
+			<div id="outerWrap">
+				<div id="sliderParent"></div>
+				<div class="blueline" id="blueline" style="top: 0px;"></div>
+				<ul class="tabGroup">
+					<li class="tabOption selectedTab">安全设置</li>
+					<li class="tabOption">基本资料</li>
+					<li class="tabOption">账号绑定</li>
+					<li class="tabOption">密码修改</li>
+					<li class="tabOption">实名认证</li>
+					<li class="tabOption">会员权益</li>
+					<li class="tabOption">帮助中心</li>
+				</ul>
+				<div id="container">
+					<div id="content">
+						<div class="tabContent  selectedContent">
+							<!-- 1JavaScript培训:优势 -->
+							<h3 style="">安全设置</h3>
+							<div style="float: left">
+								<img src="images/client2.png">
+							</div>
+							<div style="float: left; margin-left: 30px; padding-top: 30px;">
+								<p>
+									登录账号 ： 145903****@qq.com<a> 修改</a> (您已通过实名认证)
+								<p>账号ID ： 1584347768577691
+								<p>实名认证支付宝账号 ： 145903****@qq.com
+								<p>注册时间 ：2015-11-17 21:56:17</p>
+								<p>
+									<span> 云盘等级</span><span style="padding-left: 5px;"><img
+										src="images/bb.png"></span><span><strong>LV3</strong></span>
+								</p>
+								<p>
+									<span><img src="images/kk.png"></span>绑定密保邮箱，提供安全保障<span
+										style="float: right; color: #090; margin-right: 5px;">已设置|<span
+										style="color: red">修改</span></span>
+								</p>
+								<p>
+									<span><img src="images/gg.png"></span>下载安全中心手机版，多种验证方式任你挑选<span
+										style="float: right; color: #090; margin-right: 5px;">
+										未设置|<span style="color: red">修改</span>
+									</span>
+								</p>
+								<p>
+									<span><img src="images/kk.png"></span>开启登录保护，帐号被盗也不用担心<span
+										style="float: right; color: #090; margin-right: 5px;">已设置|<span
+										style="color: red">修改</span></span>
+								</p>
 
-</dd>
-            <dd>1. 5天内创建的IP黑洞解除时间：150分钟</dd>
-            <dd>2. 如您的攻击持续未停止，会自动延长黑洞时间</dd>
-          </dl>
-          
-          <dl>
-            <dt>权益介绍</dt>
-            <dd>L1：安全信誉最高550分
+							</div>
 
 
-</dd>
-            <dd>L2：安全信誉最高600分</dd>
-                <dd>L3：安全信誉最高650分</dd>
+						</div>
+						<div class="tabContent">
+							<!-- 3 主体课程 -->
+							<h3>基本资料</h3>
+							<dl style="padding-left: 5px;">
+								<dt>基本信息：</dt>
+								<p style="padding-left: 10px;">
+									云等级：LV${userDetailInfo.level}<br />
+								<p style="padding-left: 10px;">
+									真实姓名：${userDetailInfo.realname}<br />
+								</p>
+							</dl>
+							<dl style="padding-left: 10px;">
+								<dt class="high">联系信息</dt>
+								<dd>
+									<p style="padding-left: 10px;">
+										国家/地区<input type="text" value="${userDetailInfo.country}"
+											style="width: 300px; height: 40px;; border: 1px solid #CCC; margin-left: 10px;">
+									</p>
+								</dd>
+								<dd>
+									<p style="padding-left: 10px;">
+										地址<input type="text" value="${userDetailInfo.address}"
+											style="width: 300px; height: 40px;; border: 1px solid #CCC; margin-left: 36px;">
+									</p>
+								</dd>
+								<dd>
+									<p style="padding-left: 10px;">
+										电话<input type="text" value="${userDetailInfo.phone}"
+											style="width: 300px; height: 40px;; border: 1px solid #CCC; margin-left: 36px;">
+									</p>
+								</dd>
 
-            <dd>L4：安全信誉最高1000分。</dd>
+							</dl>
+							<p style="text-align: center">
+								<input type="button" value="保存"
+									style="width: 50px; height: 30px; linle 30px; background: #666; color: #CCC">
+							</p>
+						</div>
+						<div class="tabContent">
+							<h3>账号绑定</h3>
+							<dl>
+								<dt>最大亮点：</dt>
+								<dd>主流的、引领前沿的新技术，邀请知名公司的前端技术大牛讲解的饕餮大餐，可谓是群星荟萃！我们的目标就是：以珠峰为起点，让你飞的更高！</dd>
+							</dl>
+							<dl>
+								<dt>高端课程：</dt>
+								<dd>
+									<p>1、HTML5移动端开发</p>
+									<p>2、CSS3及响应式布局</p>
+									<p>3、Node.js</p>
+									<p>4、MVC富客户端开发</p>
+									<p>5、angularJS框架</p>
+									<p>
+										<img src="images/gdkc.png" alt="">
+									</p>
+								</dd>
+							</dl>
+						</div>
+						<div class="tabContent">
+							<!-- 就业传奇 -->
+							<h3>修改密码</h3>
+							<p style="padding-left: 10px;">
+								原始密码<input type="text"
+									style="width: 300px; height: 40px;; border: 1px solid #CCC; margin-left: 10px;">
+							</p>
+							<p style="padding-left: 10px;">
+								新密码<input type="text"
+									style="width: 300px; height: 40px;; border: 1px solid #CCC; margin-left: 20px;">
+							</p>
+							<p style="padding-left: 10px;">
+								确认密码<input type="text"
+									style="width: 300px; height: 40px;; border: 1px solid #CCC; margin-left: 10px;">
+							</p>
+							<p style="padding-left: 100px;">
+								<input type="button" value="保存"
+									style="width: 50px; height: 30px; linle 30px; background: #999; color: #CCC"><input
+									type="button" value="取消"
+									style="width: 50px; height: 30px; linle 30px; background: #999;; color: #CCC; margin-left: 30px;">
+							</p>
+						</div>
+						<div class="tabContent">
+							<h3>实名认证</h3>
+							<dl>
+								<dt>HI,*DAB</dt>
+								<dd>
+									<p style="font-size: 16px;">您已成功通过阿里云个人认证！</p>
+								</dd>
+								<dd>
+									<p>若您是企业用户，可通过企业对公帐号打款认证进行变更</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>认证结果</dt>
+								<dd>
+									<p style="margin-left: 100px;">
+										<img src="images/ll.png" />
+									</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>学生会的明天</dt>
+								<dd>
+									<p>明天，我们会更好！！珠峰和所有同学共同成长！！我们在一起战斗，不孤单！</p>
+								</dd>
+							</dl>
+							<p>
+								<span class="high" style="margin: 0 10px;">不定期的组织活动</span><span
+									class="high" style="margin: 0 10px;">前沿技术分享</span><span
+									class="high" style="margin: 0 10px;">工作的交流推荐平台</span><span
+									class="high" style="margin: 0 10px;">展示自己的机会</span>
+							</p>
+							<p>
+								<a>学生是珠峰的信仰。每一位同学都是佛，我只是一位拜佛人！</a>
+							</p>
+						</div>
+						<div class="tabContent" style="">
+							<!--  招聘讲师 -->
+							<h3>会员权益</h3>
+							<dl>
+								<dt>HI *丹</dt>
+								<dd>您是L1会员，尊享2项特权</dd>
+							</dl>
+							<dl>
+								<dt>享受人群</dt>
+								<dd>
+									百度云根据您的受攻击情况、历史清洗情况等多个指标综合判断后选取了部分L2、L3、L4会员享有此特权，后续将逐步开放。
+									说明：享受此会员特权需要有正在使用的产品 以下情况暂时不享受黑洞提前解除</dd>
+								<dd>1. 5天内创建的IP黑洞解除时间：150分钟</dd>
+								<dd>2. 如您的攻击持续未停止，会自动延长黑洞时间</dd>
+							</dl>
 
-          </dl>
-        </div>
-        <div class="tabContent" style=""><!-- HELLO素材网 -->
-          <h3>帮助中心</h3>
-          <dl>
-            <dt>问：如何查看我的安全信誉分值？</dt>
-            <dd>问：如何查看我的安全信誉分值？</dd>
-            <dt>问：如何查看我的安全信誉分值？</dt>
-            <dd>问：如何查看我的安全信誉分值？</dd>
-            <dt>问：如何查看我的安全信誉分值？</dt>
-                        <dt>问：如何查看我的安全信誉分值？</dt>
-            <dt>问：如何查看我的安全信誉分值？</dt>
-            <dt>问：如何查看我的安全信誉分值？</dt>
+							<dl>
+								<dt>权益介绍</dt>
+								<dd>L1：安全信誉最高550分</dd>
+								<dd>L2：安全信誉最高600分</dd>
+								<dd>L3：安全信誉最高650分</dd>
 
-          </dl>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script  src="js/csshello.js"></script>
+								<dd>L4：安全信誉最高1000分。</dd>
 
-        <!--/.blog-->
+							</dl>
+						</div>
+						<div class="tabContent" style="">
+							<!-- HELLO素材网 -->
+							<h3>帮助中心</h3>
+							<dl>
+								<dt>问：如何查看我的安全信誉分值？</dt>
+								<dd>问：如何查看我的安全信誉分值？</dd>
+								<dt>问：如何查看我的安全信誉分值？</dt>
+								<dd>问：如何查看我的安全信誉分值？</dd>
+								<dt>问：如何查看我的安全信誉分值？</dt>
+								<dt>问：如何查看我的安全信誉分值？</dt>
+								<dt>问：如何查看我的安全信誉分值？</dt>
+								<dt>问：如何查看我的安全信誉分值？</dt>
 
-    </section><!--/#blog-->
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/csshello.js"></script>
+
+		<!--/.blog-->
+
+	</section>
+	<!--/#blog-->
 
 
-    <section id="bottom">
-        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Company</h3>
-                        <ul>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">We are hiring</a></li>
-                            <li><a href="#">Meet the team</a></li>
-                            <li><a href="#">Copyright</a></li>
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy policy</a></li>
-                            <li><a href="#">Contact us</a></li>
-                        </ul>
-                    </div>    
-                </div><!--/.col-md-3-->
+	<section id="bottom">
+		<div class="container wow fadeInDown" data-wow-duration="1000ms"
+			data-wow-delay="600ms">
+			<div class="row">
+				<div class="col-md-3 col-sm-6">
+					<div class="widget">
+						<h3>Company</h3>
+						<ul>
+							<li><a href="#">About us</a></li>
+							<li><a href="#">We are hiring</a></li>
+							<li><a href="#">Meet the team</a></li>
+							<li><a href="#">Copyright</a></li>
+							<li><a href="#">Terms of use</a></li>
+							<li><a href="#">Privacy policy</a></li>
+							<li><a href="#">Contact us</a></li>
+						</ul>
+					</div>
+				</div>
+				<!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Support</h3>
-                        <ul>
-                            <li><a href="#">Faq</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Documentation</a></li>
-                            <li><a href="#">Refund policy</a></li>
-                            <li><a href="#">Ticket system</a></li>
-                            <li><a href="#">Billing system</a></li>
-                        </ul>
-                    </div>    
-                </div><!--/.col-md-3-->
+				<div class="col-md-3 col-sm-6">
+					<div class="widget">
+						<h3>Support</h3>
+						<ul>
+							<li><a href="#">Faq</a></li>
+							<li><a href="#">Blog</a></li>
+							<li><a href="#">Forum</a></li>
+							<li><a href="#">Documentation</a></li>
+							<li><a href="#">Refund policy</a></li>
+							<li><a href="#">Ticket system</a></li>
+							<li><a href="#">Billing system</a></li>
+						</ul>
+					</div>
+				</div>
+				<!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Developers</h3>
-                        <ul>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">SEO Marketing</a></li>
-                            <li><a href="#">Theme</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Email Marketing</a></li>
-                            <li><a href="#">Plugin Development</a></li>
-                            <li><a href="#">Article Writing</a></li>
-                        </ul>
-                    </div>    
-                </div><!--/.col-md-3-->
+				<div class="col-md-3 col-sm-6">
+					<div class="widget">
+						<h3>Developers</h3>
+						<ul>
+							<li><a href="#">Web Development</a></li>
+							<li><a href="#">SEO Marketing</a></li>
+							<li><a href="#">Theme</a></li>
+							<li><a href="#">Development</a></li>
+							<li><a href="#">Email Marketing</a></li>
+							<li><a href="#">Plugin Development</a></li>
+							<li><a href="#">Article Writing</a></li>
+						</ul>
+					</div>
+				</div>
+				<!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Our Partners</h3>
-                        <ul>
-                            <li><a href="#">Adipisicing Elit</a></li>
-                            <li><a href="#">Eiusmod</a></li>
-                            <li><a href="#">Tempor</a></li>
-                            <li><a href="#">Veniam</a></li>
-                            <li><a href="#">Exercitation</a></li>
-                            <li><a href="#">Ullamco</a></li>
-                            <li><a href="#">Laboris</a></li>
-                        </ul>
-                    </div>    
-                </div><!--/.col-md-3-->
-            </div>
-        </div>
-    </section><!--/#bottom-->
+				<div class="col-md-3 col-sm-6">
+					<div class="widget">
+						<h3>Our Partners</h3>
+						<ul>
+							<li><a href="#">Adipisicing Elit</a></li>
+							<li><a href="#">Eiusmod</a></li>
+							<li><a href="#">Tempor</a></li>
+							<li><a href="#">Veniam</a></li>
+							<li><a href="#">Exercitation</a></li>
+							<li><a href="#">Ullamco</a></li>
+							<li><a href="#">Laboris</a></li>
+						</ul>
+					</div>
+				</div>
+				<!--/.col-md-3-->
+			</div>
+		</div>
+	</section>
+	<!--/#bottom-->
 
-    <footer id="footer" class="midnight-blue">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-                </div>
-                <div class="col-sm-6">
-                    <ul class="pull-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Faq</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer><!--/#footer-->
+	<footer id="footer" class="midnight-blue">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					Copyright &copy; 2015.Company name All rights reserved.<a
+						target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+				</div>
+				<div class="col-sm-6">
+					<ul class="pull-right">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Faq</a></li>
+						<li><a href="#">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--/#footer-->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/wow.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/jquery.isotope.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/wow.min.js"></script>
 </body>
 </html>

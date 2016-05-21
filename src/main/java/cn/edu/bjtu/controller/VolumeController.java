@@ -33,8 +33,8 @@ public class VolumeController {
 	 * @Description:充值
 	 * @exception:
 	 */
-	@RequestMapping("/pricing.do")
-	public String login(HttpServletResponse response, HttpServletRequest request, String type) throws Exception {
+	@RequestMapping("/buy.do")
+	public String buy(HttpServletResponse response, HttpServletRequest request, String type) throws Exception {
 		
 		if(type == null || "".equals(type) || !type.equals("5") || !type.equals("10") || !type.equals("15")) {
 			return "false";

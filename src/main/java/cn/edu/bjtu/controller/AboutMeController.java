@@ -35,11 +35,12 @@ public class AboutMeController {
 	 * @exception:
 	 */
 	@RequestMapping("/pricing.do")
-	public String login(HttpServletResponse response, HttpServletRequest request) throws Exception {
+	public String pricing(HttpServletResponse response, HttpServletRequest request) throws Exception {
 		Integer userInfoId = (Integer) request.getSession().getAttribute("userInfoId");
+		userInfoId = 1;
 		// 用户未登录的话， 直接返回空信息
-		if (userInfoId == null)
-			return "WEB-INF/jsp/pricing";
+		//if (userInfoId == null)
+			//return "WEB-INF/jsp/pricing";
 		// 用户已经登录， 查找该用户的信息并展示
 		UserDetailInfoEntity userDetailInfo = aboutMeService.getUserDetailInfo(userInfoId);
 		request.setAttribute("userDetailInfo", userDetailInfo);
@@ -57,6 +58,5 @@ public class AboutMeController {
 		
 		return "forward:pricing.do";
 	}
-	
-	
+		
 }

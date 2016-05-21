@@ -17,11 +17,11 @@ import javax.persistence.Table;
 @Entity
 public class UserDetailInfoEntity {
 	private int id;
-	private String realname;// 真实姓名
-	private String level;// 云等级
-	private String country;// 国家或地区
-	private String address;// 地址
-	private String phone;// 电话
+	private String realname = "未填写";// 真实姓名
+	private String level = "1";// 云等级
+	private String country = "CN";// 国家或地区
+	private String address = "北京";// 地址
+	private String phone = "未填写";// 电话
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
