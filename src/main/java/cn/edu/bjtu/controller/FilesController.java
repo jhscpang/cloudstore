@@ -29,6 +29,7 @@ import cn.edu.bjtu.model.FileEntity;
 import cn.edu.bjtu.model.FileFormate;
 import cn.edu.bjtu.service.IFileService;
 import cn.edu.bjtu.utils.FileBasePathUtil;
+import cn.edu.bjtu.utils.file.DeleteFileUtil;
 import cn.edu.bjtu.utils.file.FileType;
 import cn.edu.bjtu.utils.file.FileUtil;
 import cn.edu.bjtu.utils.file.RenameFile;
@@ -128,6 +129,48 @@ public class FilesController {
 			){
 		file.setState(0);
 		fileService.addFile(file);
+	}
+    /* 
+     * 恢复文件或文件夹
+     * url: cloudDisk/filename
+     * */
+    @RequestMapping(value="/cloudDisk/recover.do",
+            method=RequestMethod.POST)  
+    @ResponseStatus(HttpStatus.OK)  
+	public void recoverFile(@RequestBody FileEntity file
+		//HttpSession session
+			){
+		file.setState(1);
+		fileService.addFile(file);
+	}
+    /* 
+     * 恢复文件或文件夹
+     * url: cloudDisk/filename
+     * */
+    @RequestMapping(value="/cloudDisk/finaldelete.do",
+            method=RequestMethod.POST)  
+    @ResponseStatus(HttpStatus.OK)  
+	public void finalFile(@RequestBody FileEntity file
+		//HttpSession session
+			){
+    	DeleteFileUtil.delete(file.getPath()+file.getFilename());
+		fileService.deleteFile(file.getId());
+	}
+    /* 
+     * 删除选中的文件和文件夹
+     * url: cloudDisk/filename
+     * */
+    @RequestMapping(value="/cloudDisk/removeFiles.do",
+            method=RequestMethod.POST)  
+    @ResponseStatus(HttpStatus.OK)  
+	public void deleteSelectedFiles(@RequestBody List<FileEntity> files
+		//HttpSession session
+			){
+    	for(int i=0;i<files.size();i++){
+    		FileEntity file = files.get(i);
+    		file.setState(0);
+    		fileService.addFile(file);
+    	}
 	}
     /* 
      * 获得回收站中所有文件或文件夹
