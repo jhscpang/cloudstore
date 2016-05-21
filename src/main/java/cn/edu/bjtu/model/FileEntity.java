@@ -7,6 +7,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,56 +26,65 @@ public class FileEntity {
 	private int user_id;
 	private String filename;
 	private FileFormate fileFormate;//文件格式
-	private int size;
+	private long size;
 	
 	private Date upload_time;
 	private int can_shared;//是否可以共享
-	private int state;
+	private int state;//0表示不可用，在回收站里，1表示可用
 	private int version_id;
+	private String path; //文件所在文件夹
 	
+	
+
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "FID", nullable = false, length = 9)
+	@Column(name = "FID", nullable = true, length = 9)
 	public int getId() {
 		return id;
 	}
 	
-	@Column(name = "UID", nullable = false, length = 9)
+	@Column(name = "UID", nullable = true, length = 9)
 	public int getUser_id() {
 		return user_id;
 	}
 	
-	@Column(name = "FILENAME", nullable = false, length = 200)
+	@Column(name = "FPATH", nullable = true, length = 200)
+	public String getPath() {
+		return path;
+	}
+	@Column(name = "FILENAME", nullable = true, length = 200)
 	public String getFilename() {
 		return filename;
 	}
-	
-	@Column(name = "FILEFORNATE", nullable = false)
+	@Enumerated(EnumType.STRING)
+	@Column(name = "FILEFORMATE", nullable = true)
 	public FileFormate getFileFormate() {
 		return fileFormate;
 	}
 	
-	@Column(name = "SIZE", nullable = false, length = 10)
-	public int getSize() {
+	@Column(name = "SIZE", nullable = true, length = 10)
+	public long getSize() {
 		return size;
 	}
 	
-	@Column(name = "UPLOAD_TIME", nullable = false, columnDefinition="DATE")
+	@Column(name = "UPLOAD_TIME", nullable = true, columnDefinition="DATE")
 	public Date getUpload_time() {
 		return upload_time;
 	}
 	
-	@Column(name = "CAN_SHARED", nullable = false, length=2)
+	@Column(name = "CAN_SHARED", nullable = true, length=2)
 	public int getCan_shared() {
 		return can_shared;
 	}
 	
-	@Column(name = "STATE", nullable = false, length=2)
+	@Column(name = "STATE", nullable = true, length=2)
 	public int getState() {
 		return state;
 	}
 	
-	@Column(name = "VERSION_ID", nullable = false, length=2)
+	@Column(name = "VERSION_ID", nullable = true, length=2)
 	public int getVersion_id() {
 		return version_id;
 	}
@@ -90,8 +101,8 @@ public class FileEntity {
 	public void setFileFormate(FileFormate fileFormate) {
 		this.fileFormate = fileFormate;
 	}
-	public void setSize(int size) {
-		this.size = size;
+	public void setSize(long l) {
+		this.size = l;
 	}
 	public void setUpload_time(Date upload_time) {
 		this.upload_time = upload_time;
@@ -105,6 +116,8 @@ public class FileEntity {
 	public void setVersion_id(int version_id) {
 		this.version_id = version_id;
 	}
-	
+	public void setPath(String path) {
+		this.path = path;
+	}
 	
 }
