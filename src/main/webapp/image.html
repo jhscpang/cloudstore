@@ -1,0 +1,326 @@
+<div class="right-content">
+			<div class="module-toolbar">
+				<div class="default-dom" style="display:block">
+				    <form name="test_form" method="post" ENCTYPE="multipart/form-data" onsubmit="alert(document.test_form.browse.value);" >
+                <input type="file" name="browse" style="display:none;" /> 
+				 <div  style="left: 20px; position: relative; "> 
+                <button type="button" class="btn btn-primary btn-xs" style="margin-right:20px;" onclick="fn_browse();"><span class="glyphicon glyphicon-cloud-upload"></span>上传文件</button>                                         
+                <button type="button" class="btn btn-primary btn-xs"  onclick="fn_browse();"><span class="glyphicon glyphicon-cloud-upload"></span>上传文件夹</button>  
+                <div class="list-grid-switch list-switched-on">
+						<div class="list-switch"></div>
+						<div class="grid-switch"></div>
+					</div>
+                
+                </div>
+                </form>
+					
+				</div>
+			</div>
+			<div class="pic-content">
+				<div class="module-history-list">
+					<span class="history-list-dir">全部图片</span>
+					<span class="history-list-tips">已加载100个</span>
+				</div>
+				<div class="list-view-header list-header-visible-operate">
+					<div class="list-header">
+						<ul class="grid-cols">
+							<li class="col first-col">
+								<div class="col-item check">
+									<input name="select_all_gallery" class="check-icon" type="checkbox"/>
+								</div>
+							</li>
+						</ul>
+						<div class="list-header-operatearea global-clearfix">
+							<span class="count-tips">已选中0个文件/文件夹</span>
+							<input value=0 class="count" style="display:none"/>
+							<div class="list-header-operate" style="white-space: nowrap; position: relative;">
+								<div class="operate">
+									<div class="g-button sharebutton" href="javascipt:void(0);">
+										<span class="g-button-right">
+											<em class="icon icon-share-gray" title="分享">
+											</em>
+											<span class="text" style="width:auto;">分享</span>
+										</span>
+									</div>
+									<a class="g-button" href="">
+										<span class="g-button-right">
+											<em class="icon icon-download-gray" title="下载">
+											</em>
+											<span class="text" style="width:auto;">下载</span>
+										</span>
+									</a>
+									<div class="g-button deletebutton" href="">
+										<span class="g-button-right">
+											<em class="icon icon-delete" title="删除">
+											</em>
+											<span class="text" style="width:auto;">删除</span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="grid-view-container" style="display:block">
+					<div class="module-grid-view">
+						<div class="grid-view" ng-repeat="file in Files">
+								   <div class="col-md-2 grid_box">
+									  <div class="img_box">
+									   <a href="images/p1.jpg" class="swipebox"  title="Image Title"> <img src="images/p1.jpg" class="img-responsive" alt=""><span class="zoom-icon"></span> </a>
+									   <input class="img_checkbox" type="checkbox" name="gallery"/>
+									  </div>
+									  <div class="grid_box2">
+									   <p> {{file.filename}}</p>
+									  </div>
+								   </div>
+								  		
+					</div>
+				</div>
+			</div>
+			<div class="list-view-container" style="display:none">
+					<div class="module-list-view">
+						<div class="list-view" ng-repeat="file in Files">
+							<dd class="g-clearfix list-view-item">
+								<input name="gallery" class="my_checkbox" type="checkbox"/>
+								<div class="fileicon fileicon-small-gallery"></div>
+								<div class="file-name" style="width:60%">
+									<div class="text">
+										<a class="filename" href="#" title="">{{ file.filename}}</a>
+									</div>
+									<div class="operate" style="display:none;">
+										<div class="g-button sharebutton" href="javascipt:void(0);">
+											<span class="g-button-right">
+												<em class="icon icon-share-blue" title="分享">
+												</em>
+											</span>
+										</div>
+										<a class="g-button" href="">
+											<span class="g-button-right">
+												<em class="icon icon-download-blue" title="下载">
+												</em>
+											</span>
+										</a>
+										<div class="g-button" href="javascipt:void(0);">
+											<span class="g-button-right">
+												<em class="icon icon-gengduo-blue gengduo-button" title="更多">
+												</em>
+											</span>
+											<span style="width: 64px; display:none;" class="menu">
+												<span data-menu-id="b-menu5" data-excludedir="apps,来自PC的备份文件,百度云收藏" class="g-button-menu rename" href="javascript:void(0);">重命名
+												</span>
+												<span data-menu-id="b-menu6" data-excludedir="apps,来自PC的备份文件,百度云收藏" class="g-button-menu deletebutton" href="javascript:void(0);">删除
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="file-size" style="width:16%">4.7M</div>
+								<div class="ctime" style="width:23%">2016-05-06 17:16</div>
+							</dd>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="share" class="dialog dialog-share">
+	<div class="dialog-header dialog-drag">
+		<h3>
+			<span class="dialog-header-title">
+				<em class="select-text">分享文件：</em>
+			</span>
+		</h3>
+		<div class="dialog-control">
+			<span class="dialog-icon dialog-close share-close">
+			</span>
+		</div>
+	</div>
+	<div class="dialog-body">
+		<div class="share-dialog">
+			<div id="_disk_id_1" class="content">
+				<ul class="tab">
+					<li class="share-link current">
+						<span class="icon"></span>
+						链接分享
+					</li>
+					<li class="share-friend">
+						<span class="icon"></span>
+						发给好友
+					</li>
+					<li class="share-mail">
+						<span class="icon"></span>
+						发到邮箱
+					</li>
+				</ul>
+				<ul class="content">
+					<li id="share-link" class="share-link" style="display:block;">
+						<div class="create-link">
+								<span class="all">生成下载链接，然后复制链接发送到QQ,MSN等好友</span>
+							<div class="button-section">
+								<button type="button" class="mybtn btn">创建链接</button>
+								
+							</div>
+						</div>
+					</li>
+					<li id="share-friend" class="share-friend" style="display:none;">
+						<div id="sharefriendBox" class="share-friend-box">
+						<p class="title">
+							<span id="shareTitle">选择好友分享文件，一次最多50人</span>
+						</p>
+						<div class="content global-clearfix">
+							<div class="left-side">
+								<div id="contactBox" class="contact-box">
+									<div id="friendBox" class="contact-group" style="display:block;">
+										<ul id="treeList-abc-" class="tree-list">
+											<li id="treeList-abc-1" class="mboxOfGroup step-0">
+												<div class="title zhankai">
+													<em class="icon"></em>
+													群组
+													<span class="number">(1)</span>
+												</div>
+												<ul style="display:none; margin:0; padding:0;">
+													<li id="treeList-abc-1,0" class="step-1">
+														<div class="mylabel select-label"></div>
+														<div class="uinfo" title="hlh2bjtu、唯想断城、ohowzz的群组">
+															<div class="img-box img-box-3 global-clearfix">
+																<img src="http://himg.bdimg.com/sys/portrait/item/aaacba23.jpg" class="img-1">
+																<img src="http://himg.bdimg.com/sys/portrait/item/0cef624d.jpg" class="img-2">
+																<img src="http://himg.bdimg.com/sys/portrait/item/2827f154.jpg" class="img-3">
+															</div>
+															hlh2bjtu、唯想断城、ohowzz的群组
+														</div>
+													</li>
+												</ul>
+											</li>
+											<li id="treeList-abc-2" class="mboxOfFriend step-0">
+												<div class="title zhankai">
+													<em class="icon"></em>
+													好友
+													<span class="number">(3)</span>
+												</div>
+												<ul style="display: none; margin:0; padding:0;">
+													<li id="treeList-abc-2,0" class="step-1">
+														<div class="mylabel select-label"></div>
+														<div class="uinfo" title="侯立华">
+															<img src="http://himg.bdimg.com/sys/portrait/item/0cef624d.jpg" class="avatar">
+															侯立华
+														</div>
+													</li>
+													<li id="treeList-abc-2,1" class="step-1">
+														<div class="mylabel select-label"></div>
+														<div class="uinfo" title="许瑶11211">
+															<img src="http://himg.bdimg.com/sys/portrait/item/ebcf4323.jpg" class="avatar">
+															许瑶11211
+														</div>
+													</li>
+													<li id="treeList-abc-2,2" class="step-1">
+														<div class="mylabel select-label"></div>
+														<div class="uinfo" title="hlh2bjtu">
+															<img src="http://himg.bdimg.com/sys/portrait/item/aaacba23.jpg" class="avatar">
+															hlh2bjtu
+														</div>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+
+								</div>
+							</div>
+							<div class="right-side">
+								<div id="searchBox" class="search-box">
+									<div style="line-height:34px;text-align: right;">
+										<a id="searchFriendLink" href="javascript:void(0);">
+											添加好友
+										</a>
+									</div>
+								</div>
+								<div id="selectedList">
+									<div class="selected-box">
+										<p class="title" id="descTitle">
+											已选择
+											<span id="shareNum" class="share-num">0</span>
+											个收件人
+											<span id="defaultSelectedTip" style="display: none;">（默认创建群组）</span>
+										</p>
+										<ul class="select-list">
+											<div class="none global-center" style="display:block;">
+												<span>你还没有选择好友</span>
+											</div>
+											<!-- <li data-uniqueid="4014555837" data-groupid="2,0" class="item">
+												<div class="label-box" node-type="labelBox">
+													<div class="mylabel label-dis"></div>
+												</div>
+												<div class="uinfo g-clearfix" title="侯立华">
+													<img src="http://himg.bdimg.com/sys/portrait/item/0cef624d.jpg" class="avatar" height="23" width="23">
+													<span class="uname">
+													侯立华
+													</span>
+												</div>
+											</li> -->
+										</ul>
+									</div>
+								</div><!-- 搜索结果 -->
+							<div style="display: none;" id="resultBox" class="result-box">
+								<div id="searchResultParent" class="search-result-parent">
+								</div>
+							</div>
+						</div>
+						</div>
+						</div>
+					</li>
+					<li id="share-mail" class="share-mail" style="display:none;">
+						<div id="sharefriendBox" class="share-phone-mail-box">
+							<div class="right-side">
+							</div>
+							<div class="left-side">
+								<p class="title">
+									<span id="shareTitle">将文件的下载地址发到好友的邮箱，一次最多5人
+									</span>(<span id="shareNu" class="nu">0</span>)
+								</p>
+								<div id="nameContent" class="name-content clearfix">
+									<div id="nameCards" class="name-cards">
+									</div>
+									<input style="width: 397px; color: rgb(153, 153, 153);" id="inputText" class="input-text" value="请输入或选择邮件地址" type="text">
+								</div>
+								<p class="title" id="descTitle">邮件内容：</p>
+								<p class="desc-box"><label>0/500</label><textarea id="desc" class="desc" maxlength="500">描述一下分享的文件吧</textarea></p>
+							</div>
+
+						</div>
+					</li>
+				</ul>
+				<div class="dialog-footer">
+					<button type="button" class="share-close dialogclose btn btn-default">
+					关闭  </button>
+					<button type="button" class="share-btn btn btn-danger" style="display:none;">分享</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="confirm" class="dialog dialog-confirm">
+	<div class="dialog-header dialog-drag">
+		<h3>
+			<span class="dialog-header-title">
+				<em class="select-text">确认删除</em>
+			</span>
+		</h3>
+		<div class="dialog-control">
+			<span class="dialog-icon dialog-close confirm-close">
+			</span>
+		</div>
+	</div>
+	<div class="dialog-body">
+		<div style="text-align:center;padding:22px;">
+		确认要把所选文件放入回收站吗？<br>删除的文件可在10天内通过回收站还原
+		</div>
+	</div>
+	<div class="confirm-dialog-footer">
+		<button type="button" class="btn btn-danger">
+					确定  </button>
+		<button type="button" class="confirm-close btn btn-default">
+					取消  </button>			
+	</div>
+</div>
