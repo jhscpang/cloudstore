@@ -6,7 +6,7 @@ package cn.edu.bjtu.dao.impl;
 import org.springframework.stereotype.Repository;
 
 import cn.edu.bjtu.dao.IAboutMeDao;
-import cn.edu.bjtu.model.UserDetailInfo;
+import cn.edu.bjtu.model.UserDetailInfoEntity;
 
 /**
  * 
@@ -14,6 +14,6 @@ import cn.edu.bjtu.model.UserDetailInfo;
  */
 
 @Repository("aboutMeDao")
-public class AboutMeDaoImpl extends BaseDaoImpl<UserDetailInfo> implements IAboutMeDao {
+public class AboutMeDaoImpl extends BaseDaoImpl<UserDetailInfoEntity> implements IAboutMeDao {
 	
 }

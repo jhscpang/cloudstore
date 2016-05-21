@@ -13,7 +13,7 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import cn.edu.bjtu.dao.IRegisterDao;
 import cn.edu.bjtu.dao.IUserDao;
 import cn.edu.bjtu.model.UserEntity;
-import cn.edu.bjtu.model.UserInfo;
+import cn.edu.bjtu.model.UserInfoEntity;
 import cn.edu.bjtu.service.IRegisterService;
 import cn.edu.bjtu.service.IUserService;
 
@@ -36,7 +36,7 @@ public class RegisterServiceImpl implements IRegisterService {
 	}
 
 	@Override
-	public int save(UserInfo userInfo) {
+	public int save(UserInfoEntity userInfo) {
 		if(null == userInfo) 
 			return -1;
 		Boolean isExist = registerDao.isExist(userInfo.getEmail());

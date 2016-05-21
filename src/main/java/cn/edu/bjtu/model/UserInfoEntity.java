@@ -13,9 +13,9 @@ import javax.persistence.Table;
 /**
  * @author pang 用户注册信息
  */
-@Table(name = "t_userinfo")
+@Table(name = "t_userinfoentity")
 @Entity
-public class UserInfo {
+public class UserInfoEntity {
 	private int id;
 	private String username;
 	private String password;

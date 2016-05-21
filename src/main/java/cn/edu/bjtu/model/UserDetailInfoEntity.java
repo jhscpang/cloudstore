@@ -13,9 +13,9 @@ import javax.persistence.Table;
 /**
  * @author pang 用户详细信息
  */
-@Table(name = "t_userdetailinfo")
+@Table(name = "t_userdetailinfoentity")
 @Entity
-public class UserDetailInfo {
+public class UserDetailInfoEntity {
 	private int id;
 	private String realname;// 真实姓名
 	private String level;// 云等级

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.edu.bjtu.dao.IAboutMeDao;
-import cn.edu.bjtu.model.UserDetailInfo;
+import cn.edu.bjtu.model.UserDetailInfoEntity;
 import cn.edu.bjtu.service.IAboutMeService;
 
 /**
@@ -32,17 +32,17 @@ public class AboutMeServiceImpl implements IAboutMeService {
 
 	// 获取个人资料信息
 	@Override
-	public UserDetailInfo getUserDetailInfo(Integer userInfoId) {
+	public UserDetailInfoEntity getUserDetailInfo(Integer userInfoId) {
 		if(userInfoId == null || userInfoId <= 0) 
-			return new UserDetailInfo();
+			return new UserDetailInfoEntity();
 		
-		return aboutMeDao.get(UserDetailInfo.class, userInfoId);
+		return aboutMeDao.get(UserDetailInfoEntity.class, userInfoId);
 	}
 
 	// 更新个人资料信息
 	@Override
 	public void updateUserDetailInfo(Integer userInfoId, String country, String address, String phone) {
-		UserDetailInfo userDetailInfo = getUserDetailInfo(userInfoId);
+		UserDetailInfoEntity userDetailInfo = getUserDetailInfo(userInfoId);
 		
 		userDetailInfo.setCountry(country);
 		userDetailInfo.setAddress(address);

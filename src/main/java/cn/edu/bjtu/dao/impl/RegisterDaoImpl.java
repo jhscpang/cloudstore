@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import cn.edu.bjtu.dao.IRegisterDao;
 import cn.edu.bjtu.dao.IUserDao;
 import cn.edu.bjtu.model.UserEntity;
-import cn.edu.bjtu.model.UserInfo;
+import cn.edu.bjtu.model.UserInfoEntity;
 import cn.edu.bjtu.utils.EmailUtil;
 
 /**
@@ -21,11 +21,11 @@ import cn.edu.bjtu.utils.EmailUtil;
  */
 
 @Repository("registerDao")
-public class RegisterDaoImpl extends BaseDaoImpl<UserInfo> implements IRegisterDao {
+public class RegisterDaoImpl extends BaseDaoImpl<UserInfoEntity> implements IRegisterDao {
 	
 	@Override
 	public boolean isExist(String email) {
-		List<UserInfo> userInfos = this.find("From UserInfo where email = '" + email + "'");
+		List<UserInfoEntity> userInfos = this.find("From UserInfoEntity where email = '" + email + "'");
 		if (userInfos.size() >= 1) {
 			return true;
 		}

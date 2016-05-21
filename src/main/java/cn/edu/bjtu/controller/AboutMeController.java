@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cn.edu.bjtu.model.UserDetailInfo;
+import cn.edu.bjtu.model.UserDetailInfoEntity;
 import cn.edu.bjtu.service.IAboutMeService;
 
 /**
@@ -41,7 +41,7 @@ public class AboutMeController {
 		if (userInfoId == null)
 			return "WEB-INF/jsp/pricing";
 		// 用户已经登录， 查找该用户的信息并展示
-		UserDetailInfo userDetailInfo = aboutMeService.getUserDetailInfo(userInfoId);
+		UserDetailInfoEntity userDetailInfo = aboutMeService.getUserDetailInfo(userInfoId);
 		request.setAttribute("userDetailInfo", userDetailInfo);
 		return "WEB-INF/jsp/pricing";
 	}
