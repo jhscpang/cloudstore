@@ -1,0 +1,161 @@
+<div class="right-content">
+			<div class="pic-toolbar">
+				<div class="yun-pic-bar">
+					<a class="btn-item" href="#"></a>
+				</div>
+			</div>
+			<div class="module-toolbar">
+				<div class="default-dom" style="display:block">
+			
+				 <div  style="left: 955px; position: relative; "> 
+                <button type="button" class="btn btn-primary btn-xs" style="margin-right:20px;"><span class="glyphicon glyphicon-cloud-upload"></span>清空回收站</button>                                         
+               
+                </div>               
+					
+				</div>
+			</div>
+			<div class="pic-content">
+				<div class="module-history-list">
+					<span class="history-list-dir">回收站</span>
+					<span class="history-list-tips">已加载{{Files.length}}个</span>
+				</div>
+				<div class="list-view-header list-header-visible-operate">
+					<div class="list-header">
+						<ul class="grid-cols">
+							<li class="col" style="width: 50%">
+								<div class="col-item check">
+									<span class="check-icon"></span>
+									<span class="text">文件名</span>
+								</div>
+							</li>
+							<li class="col" style="width: 15%">
+									<span class="text">大小</span>
+							</li>
+							<li class="col" style="width: 20%">
+									<span class="text">删除时间</span>
+							</li>
+							<li class="col" style="width: 13%">
+									<span class="text">有效时间</span>
+							</li>
+						</ul>
+						<div class="list-header-operatearea global-clearfix" style="display:none;">
+							<span class="count-tips">已选中1个文件/文件夹</span>
+							<div class="list-header-operate" style="white-space: nowrap; position: relative;">
+								<div class="operate">
+									<div class="g-button sharebutton" href="javascipt:void(0);">
+										<span class="g-button-right">
+											<em class="icon icon-share-gray" title="分享">
+											</em>
+											<span class="text" style="width:auto;">分享</span>
+										</span>
+									</div>
+									<a class="g-button" href="">
+										<span class="g-button-right">
+											<em class="icon icon-download-gray" title="下载">
+											</em>
+											<span class="text" style="width:auto;">下载</span>
+										</span>
+									</a>
+									<div class="g-button deletebutton" href="">
+										<span class="g-button-right">
+											<em class="icon icon-delete" title="删除">
+											</em>
+											<span class="text" style="width:auto;">删除</span>
+										</span>
+									</div>
+									<a class="g-button" href="">
+										<span class="g-button-right">
+											<span class="text" style="width:auto;">重命名</span>
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class="list-view-container" style="display:block">
+					<div class="module-list-view">
+						<div class="list-view" ng-repeat="file in Files">
+							<dd class="g-clearfix list-view-item">
+								<span class="my_checkbox"></span>
+								<div class="fileicon fileicon-small-recycle"></div>
+								<div class="file-name" style="width:52%">
+									<div class="text">
+										<a class="filename" href="#" title="">{{file.filename}}</a>
+									</div>
+									<div class="operate" style="display:none;">
+										<div class="g-button restore_button" ng-click="showRecover(file)">
+											<span class="g-button-right">
+												<em class="icon icon-restore-blue" title="恢复">
+												</em>
+											</span>
+										</div>
+										<div class="g-button final_deletebutton" ng-click="showDelete(file)">
+											<span class="g-button-right">
+												<em class="icon icon-delete-blue" >
+												</em>
+											</span>
+										</div>
+										
+									</div>
+								</div>
+								<div class="col" style="width:15%">{{file.size|changefile}}</div>
+								<div class="col" style="width:20%">{{file.upload_time|date:short}}</div>
+								<div class="col" style="width:13%">10天</div>
+							</dd>
+							
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="final_delete_confirm" class="dialog dialog-recycle-confirm">
+	<div class="dialog-header dialog-drag">
+		<h3>
+			<span class="dialog-header-title">
+				<em class="select-text">彻底删除</em>
+			</span>
+		</h3>
+		<div class="dialog-control">
+			<span class="dialog-icon dialog-close final_delete_confirm_close">
+			</span>
+		</div>
+	</div>
+	<div class="dialog-body">
+		<div style="text-align:center;padding:22px;">
+		文件删除后将无法恢复，您确认要彻底删除所选文件吗？
+		</div>
+	</div>
+	<div class="confirm-dialog-footer">
+		<button type="button" class="btn btn-danger" ng-click="finalDelete()">
+					确定  </button>
+		<button type="button" class="final_delete_confirm_close btn btn-default" ng-click="hideDelete()">
+					取消  </button>			
+	</div>
+</div>
+<div id="restore_conform" class="dialog dialog-recycle-confirm">
+	<div class="dialog-header dialog-drag">
+		<h3>
+			<span class="dialog-header-title">
+				<em class="select-text">确认还原</em>
+			</span>
+		</h3>
+		<div class="dialog-control">
+			<span class="dialog-icon dialog-close restore_confirm_close">
+			</span>
+		</div>
+	</div>
+	<div class="dialog-body">
+		<div style="text-align:center;padding:22px;">
+		确认还原选中的文件？
+		</div>
+	</div>
+	<div class="confirm-dialog-footer">
+		<button type="button" class="btn btn-danger" ng-click="recover()">
+					确定  </button>
+		<button type="button" class="restore_confirm_close btn btn-default" ng-click="hideRecover()">
+					取消  </button>			
+	</div>
+</div>
